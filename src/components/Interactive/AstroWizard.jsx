@@ -1,5 +1,242 @@
 import React, { useState } from 'react';
 
+// North Indian style Kundali Chart SVG component
+const KundaliChart = ({ rashiName, lagnaName, NakshatraName, intention }) => {
+  const [hoveredHouse, setHoveredHouse] = useState(null);
+
+  // House attributes and planetary placements for the dynamic infographic
+  const houses = {
+    1: { name: "1st House (Lagna)", attr: "Self, physical body, vitality, and general life path", planets: ["Asc", "Ascendant"] },
+    2: { name: "2nd House (Dhana)", attr: "Wealth, family values, speech, and early education", planets: [] },
+    3: { name: "3rd House (Sahaja)", attr: "Courage, sibling relationship, mental strength, communication", planets: ["♂ Mars"] },
+    4: { name: "4th House (Sukha)", attr: "Mother, home, happiness, peace of mind, property", planets: ["☽ Moon"] },
+    5: { name: "5th House (Putra)", attr: "Children, creativity, intellect, past life merits, luck", planets: [] },
+    6: { name: "6th House (Shatru)", attr: "Obstacles, debt, diseases, daily routine, service", planets: ["☊ Rahu"] },
+    7: { name: "7th House (Kalatra)", attr: "Marriage, partnerships, spouse, public relations", planets: ["♀ Venus"] },
+    8: { name: "8th House (Ayur)", attr: "Longevity, secret knowledge, sudden events, occult sciences", planets: [] },
+    9: { name: "9th House (Dharma)", attr: "Higher learning, guru, father, luck, long journeys", planets: ["♃ Jupiter"] },
+    10: { name: "10th House (Karma)", attr: "Career, status, leadership, professional achievements", planets: ["☉ Sun", "☿ Merc"] },
+    11: { name: "11th House (Labha)", attr: "Gains, friendships, aspirations, income sources", planets: [] },
+    12: { name: "12th House (Vyaya)", attr: "Losses, isolation, foreign land, sleep, liberation", planets: ["♄ Sat", "☋ Ketu"] }
+  };
+
+  // Adjust placement for career focus (put Sun in 10th for success, etc.)
+  if (intention === 'career') {
+    houses[10].planets = ["☉ Sun", "☿ Merc", "♃ Jupiter"];
+    houses[9].planets = [];
+  } else if (intention === 'peace') {
+    houses[4].planets = ["☽ Moon", "♀ Venus"];
+    houses[7].planets = [];
+  } else if (intention === 'health') {
+    houses[1].planets = ["Asc", "♃ Jupiter"];
+    houses[9].planets = [];
+  }
+
+  // Paths for 12 houses in North Indian style Kundali (diamond layout)
+  // ViewBox: 0 0 100 100
+  return (
+    <div style={{ marginTop: '16px', position: 'relative' }}>
+      <h5 className="display" style={{ fontSize: '13px', color: 'var(--gold)', textAlign: 'center', marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+        Dynamic Birth Chart (Kundali Matrix)
+      </h5>
+      
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+        <svg viewBox="0 0 100 100" style={{ width: '220px', height: '220px', background: '#0D0A06', border: '1px solid rgba(196,154,60,0.3)', borderRadius: '4px', overflow: 'visible' }}>
+          {/* Border */}
+          <rect x="2" y="2" width="96" height="96" fill="none" stroke="var(--gold)" strokeWidth="1" />
+          
+          {/* Diagonals */}
+          <line x1="2" y1="2" x2="98" y2="98" stroke="rgba(196,154,60,0.5)" strokeWidth="0.8" />
+          <line x1="2" y1="98" x2="98" y2="2" stroke="rgba(196,154,60,0.5)" strokeWidth="0.8" />
+          
+          {/* Inner Diamond */}
+          <polygon points="50,2 98,50 50,98 2,50" fill="none" stroke="rgba(196,154,60,0.8)" strokeWidth="1" />
+
+          {/* Interactive invisible hit areas for houses to show tooltips */}
+          {/* House 1: Central top triangle */}
+          <polygon 
+            points="50,2 26,26 50,50 74,26" 
+            fill={hoveredHouse === 1 ? 'rgba(196,154,60,0.15)' : 'transparent'} 
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setHoveredHouse(1)}
+            onMouseLeave={() => setHoveredHouse(null)}
+          />
+          
+          {/* House 2: Upper left triangle */}
+          <polygon 
+            points="2,2 50,2 26,26" 
+            fill={hoveredHouse === 2 ? 'rgba(196,154,60,0.15)' : 'transparent'} 
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setHoveredHouse(2)}
+            onMouseLeave={() => setHoveredHouse(null)}
+          />
+
+          {/* House 3: Far left upper triangle */}
+          <polygon 
+            points="2,2 26,26 2,50" 
+            fill={hoveredHouse === 3 ? 'rgba(196,154,60,0.15)' : 'transparent'} 
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setHoveredHouse(3)}
+            onMouseLeave={() => setHoveredHouse(null)}
+          />
+
+          {/* House 4: Central left triangle */}
+          <polygon 
+            points="2,50 26,26 50,50 26,74" 
+            fill={hoveredHouse === 4 ? 'rgba(196,154,60,0.15)' : 'transparent'} 
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setHoveredHouse(4)}
+            onMouseLeave={() => setHoveredHouse(null)}
+          />
+
+          {/* House 5: Far left lower triangle */}
+          <polygon 
+            points="2,50 26,74 2,98" 
+            fill={hoveredHouse === 5 ? 'rgba(196,154,60,0.15)' : 'transparent'} 
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setHoveredHouse(5)}
+            onMouseLeave={() => setHoveredHouse(null)}
+          />
+
+          {/* House 6: Lower left triangle */}
+          <polygon 
+            points="2,98 50,98 26,74" 
+            fill={hoveredHouse === 6 ? 'rgba(196,154,60,0.15)' : 'transparent'} 
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setHoveredHouse(6)}
+            onMouseLeave={() => setHoveredHouse(null)}
+          />
+
+          {/* House 7: Central bottom triangle */}
+          <polygon 
+            points="50,50 26,74 50,98 74,74" 
+            fill={hoveredHouse === 7 ? 'rgba(196,154,60,0.15)' : 'transparent'} 
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setHoveredHouse(7)}
+            onMouseLeave={() => setHoveredHouse(null)}
+          />
+
+          {/* House 8: Lower right triangle */}
+          <polygon 
+            points="50,98 98,98 74,74" 
+            fill={hoveredHouse === 8 ? 'rgba(196,154,60,0.15)' : 'transparent'} 
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setHoveredHouse(8)}
+            onMouseLeave={() => setHoveredHouse(null)}
+          />
+
+          {/* House 9: Far right lower triangle */}
+          <polygon 
+            points="98,50 74,74 98,98" 
+            fill={hoveredHouse === 9 ? 'rgba(196,154,60,0.15)' : 'transparent'} 
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setHoveredHouse(9)}
+            onMouseLeave={() => setHoveredHouse(null)}
+          />
+
+          {/* House 10: Central right triangle */}
+          <polygon 
+            points="50,50 74,26 98,50 74,74" 
+            fill={hoveredHouse === 10 ? 'rgba(196,154,60,0.15)' : 'transparent'} 
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setHoveredHouse(10)}
+            onMouseLeave={() => setHoveredHouse(null)}
+          />
+
+          {/* House 11: Far right upper triangle */}
+          <polygon 
+            points="98,2 74,26 98,50" 
+            fill={hoveredHouse === 11 ? 'rgba(196,154,60,0.15)' : 'transparent'} 
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setHoveredHouse(11)}
+            onMouseLeave={() => setHoveredHouse(null)}
+          />
+
+          {/* House 12: Upper right triangle */}
+          <polygon 
+            points="50,2 98,2 74,26" 
+            fill={hoveredHouse === 12 ? 'rgba(196,154,60,0.15)' : 'transparent'} 
+            style={{ cursor: 'pointer' }}
+            onMouseEnter={() => setHoveredHouse(12)}
+            onMouseLeave={() => setHoveredHouse(null)}
+          />
+
+          {/* House Numbers */}
+          <text x="50" y="32" fill="var(--gold-lt)" fontSize="3.5" textAnchor="middle" opacity="0.6">1</text>
+          <text x="36" y="16" fill="var(--gold-lt)" fontSize="3.5" textAnchor="middle" opacity="0.6">2</text>
+          <text x="16" y="36" fill="var(--gold-lt)" fontSize="3.5" textAnchor="middle" opacity="0.6">3</text>
+          <text x="32" y="51" fill="var(--gold-lt)" fontSize="3.5" textAnchor="middle" opacity="0.6">4</text>
+          <text x="16" y="66" fill="var(--gold-lt)" fontSize="3.5" textAnchor="middle" opacity="0.6">5</text>
+          <text x="36" y="86" fill="var(--gold-lt)" fontSize="3.5" textAnchor="middle" opacity="0.6">6</text>
+          <text x="50" y="70" fill="var(--gold-lt)" fontSize="3.5" textAnchor="middle" opacity="0.6">7</text>
+          <text x="64" y="86" fill="var(--gold-lt)" fontSize="3.5" textAnchor="middle" opacity="0.6">8</text>
+          <text x="84" y="66" fill="var(--gold-lt)" fontSize="3.5" textAnchor="middle" opacity="0.6">9</text>
+          <text x="68" y="51" fill="var(--gold-lt)" fontSize="3.5" textAnchor="middle" opacity="0.6">10</text>
+          <text x="84" y="36" fill="var(--gold-lt)" fontSize="3.5" textAnchor="middle" opacity="0.6">11</text>
+          <text x="64" y="16" fill="var(--gold-lt)" fontSize="3.5" textAnchor="middle" opacity="0.6">12</text>
+
+          {/* Render planets in houses dynamically */}
+          {/* House 1 planets */}
+          {houses[1].planets.map((p, idx) => (
+            <text key={idx} x="50" y={22 + idx * 4} fill="#FFFDF8" fontSize="3" fontWeight="bold" textAnchor="middle">{p}</text>
+          ))}
+          {/* House 3 planets */}
+          {houses[3].planets.map((p, idx) => (
+            <text key={idx} x="10" y={26 + idx * 4} fill="#FFFDF8" fontSize="2.8" textAnchor="middle">{p}</text>
+          ))}
+          {/* House 4 planets */}
+          {houses[4].planets.map((p, idx) => (
+            <text key={idx} x="26" y={48 + idx * 4} fill="#FFFDF8" fontSize="2.8" textAnchor="middle">{p}</text>
+          ))}
+          {/* House 6 planets */}
+          {houses[6].planets.map((p, idx) => (
+            <text key={idx} x="32" y={78 + idx * 4} fill="#FFFDF8" fontSize="2.8" textAnchor="middle">{p}</text>
+          ))}
+          {/* House 7 planets */}
+          {houses[7].planets.map((p, idx) => (
+            <text key={idx} x="50" y={78 + idx * 4} fill="#FFFDF8" fontSize="2.8" textAnchor="middle">{p}</text>
+          ))}
+          {/* House 9 planets */}
+          {houses[9].planets.map((p, idx) => (
+            <text key={idx} x="86" y={78 + idx * 4} fill="#FFFDF8" fontSize="2.8" textAnchor="middle">{p}</text>
+          ))}
+          {/* House 10 planets */}
+          {houses[10].planets.map((p, idx) => (
+            <text key={idx} x="74" y={48 + idx * 4} fill="#FFFDF8" fontSize="2.8" textAnchor="middle">{p}</text>
+          ))}
+          {/* House 12 planets */}
+          {houses[12].planets.map((p, idx) => (
+            <text key={idx} x="68" y={24 + idx * 4} fill="#FFFDF8" fontSize="2.8" textAnchor="middle">{p}</text>
+          ))}
+        </svg>
+
+        {/* Dynamic description of hovered house */}
+        <div style={{ width: '100%', minHeight: '62px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '6px', border: '1px solid rgba(196,154,60,0.1)', padding: '10px', fontSize: '11px', textAlign: 'left', lineHeight: '1.4' }}>
+          {hoveredHouse ? (
+            <div>
+              <strong style={{ color: 'var(--gold)', display: 'block', marginBottom: '2px' }}>
+                {houses[hoveredHouse].name}
+              </strong>
+              <span style={{ color: 'rgba(255,253,248,0.85)' }}>
+                {houses[hoveredHouse].attr}
+              </span>
+              {houses[hoveredHouse].planets.length > 0 && (
+                <div style={{ marginTop: '4px', fontSize: '10.5px', color: '#00d2ff' }}>
+                  Occupying: {houses[hoveredHouse].planets.join(", ")}
+                </div>
+              )}
+            </div>
+          ) : (
+            <span style={{ color: 'var(--muted)', fontStyle: 'italic', display: 'block', textAlign: 'center', marginTop: '10px' }}>
+              Hover over chart segments to inspect astrological houses &amp; planetary currents.
+            </span>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default function AstroWizard() {
   const [isVisible, setIsVisible] = useState(false);
   const [step, setStep] = useState(1);
@@ -94,7 +331,7 @@ export default function AstroWizard() {
 
       {isVisible && (
         <div className="astro-wizard-card reveal" style={{ display: 'block', marginBottom: '24px' }}>
-          <h3 className="display" style={{ fontSize: '22px', color: 'var(--gold)', textAlign: 'center', marginBottom: '16px' }}>
+          <h3 className="display" style={{ fontSize: '20px', color: 'var(--gold)', textAlign: 'center', marginBottom: '16px', letterSpacing: '0.05em' }}>
             Svaras Astrological Matcher
           </h3>
           
@@ -230,7 +467,7 @@ export default function AstroWizard() {
           {/* Step 4: Recommendation Result */}
           {step === 4 && (
             <div className="wizard-step active">
-              <div style={{ border: '1px solid var(--gold)', borderRadius: '12px', padding: '16px', background: 'rgba(0,0,0,0.3)', textAlign: 'center', marginBottom: '16px' }}>
+              <div style={{ border: '1px solid var(--gold)', borderRadius: '12px', padding: '16px', background: 'rgba(0,0,0,0.35)', textAlign: 'center', marginBottom: '16px' }}>
                 <span className="eyebrow">Sacred Profile Generated</span>
                 <h4 className="display" style={{ fontSize: '20px', color: 'var(--white)', margin: '6px 0' }}>
                   {result.rashi}
@@ -238,7 +475,15 @@ export default function AstroWizard() {
                 <p style={{ fontSize: '11px', color: 'var(--gold)', textTransform: 'uppercase', marginBottom: '10px' }}>
                   {result.lagna}
                 </p>
-                <div style={{ borderTop: '1px solid rgba(196,154,60,0.2)', paddingTop: '12px', marginTop: '12px' }}>
+                
+                {/* Custom Dynamic Kundali Chart Infographic */}
+                <KundaliChart 
+                  rashiName={result.rashi} 
+                  lagnaName={result.lagna} 
+                  intention={intention} 
+                />
+                
+                <div style={{ borderTop: '1px solid rgba(196,154,60,0.2)', paddingTop: '12px', marginTop: '16px' }}>
                   <p style={{ fontSize: '12.5px', color: 'rgba(255,253,248,0.85)', lineHeight: 1.5 }}>
                     {result.text}
                   </p>

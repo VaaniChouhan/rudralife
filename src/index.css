@@ -212,14 +212,14 @@ section{
 .light{
   background:rgba(250,246,238,0.95);
   backdrop-filter:blur(8px);
-  color:var(--black);
+  color:#1A1209; /* Near Black instead of harsh pure black */
   padding:72px 20px;
 }
 /* Aged linen */
 .linen{
   background:rgba(232,223,200,0.95);
   backdrop-filter:blur(8px);
-  color:var(--black);
+  color:#1A1209; /* Near Black */
   padding:72px 20px;
 }
 /* Deep teak */
