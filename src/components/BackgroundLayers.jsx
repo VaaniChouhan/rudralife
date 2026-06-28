@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function BackgroundLayers({ whiteBgOpacity }) {
+export default function BackgroundLayers() {
   return (
     <div id="bg-layers-container">
       {/* 🎬 THE 7 VIDEO SECTIONS */}
@@ -10,17 +10,6 @@ export default function BackgroundLayers({ whiteBgOpacity }) {
         <source src="/scene1.mp4" type="video/mp4" />
         <source src="/Shiva_tear_Rudraksha_tree_growth_202606272315.mp4" type="video/mp4" /> {/* Fallback */}
       </video>
-      {whiteBgOpacity > 0.01 && (
-        <div className="hero-white-overlay" style={{
-          position: 'fixed',
-          inset: 0,
-          backgroundColor: '#ffffff',
-          opacity: whiteBgOpacity,
-          zIndex: -1, /* Sit on top of the video but behind all content */
-          pointerEvents: 'none',
-          transition: 'opacity 0.05s ease-out'
-        }}></div>
-      )}
       
       {/* S2: Milind Soman (Scene 4: Cliff silhouette) */}
       <video id="bg-video-milind" className="fixed-bg-layer" muted playsInline loop preload="auto" style={{ width: '100vw', height: '100vh', objectFit: 'cover' }}>

@@ -55,7 +55,6 @@ export default function App() {
   const [activeFaq, setActiveFaq] = useState(null);
   const [activeTab, setActiveTab] = useState('blogs');
   const [booksCategory, setBooksCategory] = useState('all');
-  const [whiteBgOpacity, setWhiteBgOpacity] = useState(1);
 
   useEffect(() => {
     // 1. Initialize IntersectionObserver for background layers swapping
@@ -110,10 +109,6 @@ export default function App() {
       // Update scroll progress bar width
       const progressEl = document.getElementById('scrollProgress');
       if (progressEl) progressEl.style.width = `${pct}%`;
-
-      // Calculate white background opacity fade (from scroll 0 to 400)
-      const fadeOpacity = Math.max(0, 1 - scrollTop / 400);
-      setWhiteBgOpacity(fadeOpacity);
 
       // Hero Video Scrubbing via GSAP
       const heroSec = document.getElementById('s1');
@@ -174,7 +169,7 @@ export default function App() {
   return (
     <>
       <Header />
-      <BackgroundLayers whiteBgOpacity={whiteBgOpacity} />
+      <BackgroundLayers />
       
       {/* Scroll progress bar — thin gold line at top */}
       <div id="scrollProgress" style={{ position: 'fixed', top: 0, left: 0, height: '2px', background: 'var(--gold)', zIndex: 1000, width: '0%', transition: 'width 0.1s ease-out', boxShadow: '0 0 6px rgba(196,154,60,0.5)' }}></div>
@@ -196,18 +191,6 @@ export default function App() {
      S1 · HERO BANNER — RUDRAKSHA
 ══════════════════════════════════════════ */}
 <section id="s1" data-bg="13,10,6">
-  {whiteBgOpacity > 0.01 && (
-    <div className="hero-white-overlay" style={{
-      position: 'absolute',
-      inset: 0,
-      backgroundColor: '#ffffff',
-      opacity: whiteBgOpacity,
-      zIndex: 10,
-      pointerEvents: 'none',
-      transition: 'opacity 0.05s ease-out'
-    }}></div>
-  )}
-
   <div className="hero-scene"></div>
   
   <div className="hero-content">
