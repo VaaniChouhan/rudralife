@@ -17,7 +17,7 @@ export default function Header() {
         <img 
           src="/New Rudralife final logo with tagline 2017 (White).png" 
           alt="Rudralife" 
-          style={{ height: '34px', width: 'auto', maxWidth: '160px', display: 'block', objectFit: 'contain' }} 
+          style={{ height: '42px', width: 'auto', maxWidth: '180px', display: 'block', objectFit: 'contain' }} 
         />
       </a>
       
