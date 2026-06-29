@@ -1,0 +1,85 @@
+=== PART 1: HTML BLOCK ===
+content = content.replace(ace_intro_search, ace_intro_replace)
+
+# 6. Section 9 (RRTL Lab): Inject X-Ray comparison reveal slider
+rrtl_intro_search = """      <p>India's first dedicated Rudraksha testing laboratory — where ancient beads meet modern science.</p>
+    </div>"""
+
+rrtl_intro_replace = """      <p>India's first dedicated Rudraksha testing laboratory — where ancient beads meet modern science.</p>
+    </div>
+    
+    <!-- X-Ray Comparison Slider -->
+    <div class="xray-slider-container reveal">
+      <div class="xray-layer internal">
+        <svg class="xray-svg-frame" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#00d2ff" stroke-width="2" stroke-dasharray="2,2" opacity="0.8" />
+          <path d="M50,15 Q65,40 50,85" fill="none" stroke="#00d2ff" stroke-width="1.5" opacity="0.6" />
+          <path d="M50,15 Q35,40 50,85" fill="none" stroke="#00d2ff" stroke-width="1.5" opacity="0.6" />
+          <path d="M15,50 Q40,65 85,50" fill="none" stroke="#00d2ff" stroke-width="1.5" opacity="0.6" />
+          <path d="M15,50 Q40,35 85,50" fill="none" stroke="#00d2ff" stroke-width="1.5" opacity="0.6" />
+          <circle cx="38" cy="38" r="4" fill="#00d2ff" filter="drop-shadow(0 0 4px #00d2ff)" />
+          <circle cx="62" cy="38" r="4" fill="#00d2ff" filter="drop-shadow(0 0 4px #00d2ff)" />
+          <circle cx="62" cy="62" r="4" fill="#00d2ff" filter="drop-shadow(0 0 4px #00d2ff)" />
+          <circle cx="38" cy="62" r="4" fill="#00d2ff" filter="drop-shadow(0 0 4px #00d2ff)" />
+          <circle cx="50" cy="50" r="5" fill="#00d2ff" filter="drop-shadow(0 0 4px #00d2ff)" />
+          <line x1="50" y1="10" x2="50" y2="90" stroke="#00d2ff" stroke-width="1" />
+          <line x1="10" y1="50" x2="90" y2="50" stroke="#00d2ff" stroke-width="1" />
+          <line x1="22" y1="22" x2="78" y2="78" stroke="#00d2ff" stroke-width="1" />
+          <line x1="78" y1="22" x2="22" y2="78" stroke="#00d2ff" stroke-width="1" />
+        </svg>
+      </div>
+      <div class="xray-layer external" id="xrayExternal">
+        <svg class="xray-svg-frame" viewBox="0 0 100 100" style="background: radial-gradient(circle at center, #231F1A 0%, #0D0A06 100%);">
+          <circle cx="50" cy="50" r="38" fill="#C49A3C" opacity="0.15" stroke="#C49A3C" stroke-width="1" />
+          <path d="M50,12 C42,20 40,35 40,50 C40,65 42,80 50,88 C58,80 60,65 60,50 C60,35 58,20 50,12 Z" fill="#7C5C2E" stroke="#4A3418" stroke-width="1" />
+          <path d="M50,12 C32,25 30,45 30,50 C30,55 32,75 50,88 C68,75 70,55 70,50 C70,45 68,25 50,12 Z" fill="none" stroke="#4A3418" stroke-width="1.5" />
+          <path d="M50,12 Q45,35 48,50 Q45,65 50,88" fill="none" stroke="#312210" stroke-width="1" />
+          <path d="M35,30 Q45,50 35,70" fill="none" stroke="#312210" stroke-width="1" />
+          <path d="M65,30 Q55,50 65,70" fill="none" stroke="#312210" stroke-width="1" />
+          <circle cx="50" cy="50" r="3" fill="#312210" />
+        </svg>
+      </div>
+      <input type="range" min="0" max="100" value="50" class="xray-control-input" id="xraySliderRange" oninput="updateXrayReveal(this.value)">
+    </div>
+    <p style="font-size: 11px; text-align: center; color: var(--muted); margin-bottom: 20px;">Drag the slider to perform a digital X-Ray scan of the bead's internal structure.</p>"""
+
+content = content.replace(rrtl_intro_search, rrtl_intro_replace)
+
+
+=== PART 2: JS BLOCK ===
+    wrapper.classList.add('energized');
+    desc.innerHTML = '<p>✓ <strong>Purified</strong> with Gangajal &amp; Sandalwood.<br>✓ <strong>72 Hours</strong> of customized Beej Mantra chanting.<br>✓ <strong>Amplified, aligned vibrational energy</strong> that elevates the aura.</p>';
+  } else {
+    btn.classList.remove('active');
+    btn.innerText = 'Dormant Energy (Before ACE)';
+    wrapper.classList.remove('energized');
+    desc.innerHTML = '<p>Before the ACE Process, the Rudraksha bead exhibits dormant, unaligned energy signatures with micro-blockages.</p>';
+  }
+}
+
+/* ── X-Ray Comparison Slider ── */
+function updateXrayReveal(val) {
+  document.getElementById('xrayExternal').style.width = `${val}%`;
+}
+
+/* ── Scroll progress & Zone label updating ── */
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = (scrollTop / docHeight) * 100;
+  
+  document.getElementById('scrollProgress').style.width = `${pct}%`;
+  
+  // Determine Zone Label based on scroll position of major IDs
+  const sections = [
+    { id: 's1', label: 'FEEL' },
+    { id: 's4', label: 'BELIEVE' },
+    { id: 's8', label: 'PROOF' },
+    { id: 's16', label: 'ASPIRE' },
+    { id: 's22', label: 'BELONG' },
+    { id: 's25', label: 'KNOWLEDGE' }
+  ];
+  
+  let activeLabel = 'FEEL';
+  sections.forEach(s => {
+    const el = document.getElementById(s.id);

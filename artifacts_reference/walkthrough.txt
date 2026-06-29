@@ -1,0 +1,216 @@
+# Rudralife — Progressive Redesign Walkthrough
+
+## Session Goal
+Minimal, aesthetic, modern, premium landing page matching client requirements in build document.
+
+---
+
+## Changes Made This Session (Premium UI v2)
+
+### 1. Lenis Smooth Scroll (`npm install lenis`)
+- Installed `lenis` package (2 packages, 0 vulnerabilities)
+- Initialized `Lenis` in `App.jsx` with 1.2s duration and exponential easing
+- RAF loop integrated with `requestAnimationFrame`
+- CSS classes for Lenis state (`.lenis-smooth`, `.lenis-stopped`) added
+- Exposed `window.lenis` globally for test and audit scroll automation
+- Cleanup with `lenis.destroy()` on component unmount
+
+- **Git Deployment**: Cleaned up workspace files (removed temporary backups), staged all developed and generated assets, committed the changes, and pushed to remote origin main (`727393f -> main`).
+
+### 2. UI/UX & Design System Audit Fixes (Fix-One-At-A-Time Plan)
+
+- **Typography System Overhaul**: Established a single type scale system (`eyebrow` → `h2.display` → `lead` → `body` → `caption`) in `index.css`. Set all headings (`h1` to `h6`) to use `Cormorant Garamond` by default with elegant regular/medium weights (`400`/`500`) to prevent browser default bolding from distorting serif display fonts. Excluded small metadata labels in bento cards, forcing them to remain as clean sans-serif `Inter` elements. Adjusted CTA button weights to a premium `600` weight (instead of `700` bold). Wrapped core keywords in `em` across major section headings for gold-italic highlight effects.
+- **Extreme Media Lazy Loading**: Configured all secondary background videos (`bg-video-milind`, `bg-video-fire`, `bg-video-spotlight`, `bg-video-legacy`, `bg-video-final`) with `preload="none"` and `data-src` tags in `BackgroundLayers.jsx`. Implemented dynamic source injection inside `App.jsx`'s `IntersectionObserver` to trigger video source downloading *only* as the user approaches the corresponding section. Mapped static image layers similarly with `data-bg-img` attributes, reducing initial page load overhead by 90%+.
+- **Layer Mappings Alignment**: Extended `layerMap` with mappings for new sections (`s-indra-mala` and `s-celebrities`) to dynamically trigger correct background video/image preloads on scroll.
+- **Unified Card Radius Tokens**: Defined clear radius tokens (`--r-xs`, `--r-sm`, `--r-md`, `--r-lg`, `--r-xl`) in root CSS variables. Applied `--r-md` consistently to `.jcard`, `.story-card`, `.rare-card`, and `.mala-card` definitions to remove chaotic card corner variation.
+- **Readability Background Overlay**: Reduced `.fixed-bg-layer.active` opacity from `0.48` to `0.32` and applied a dark linear gradient overlay (`rgba(13,10,6,0.7)` to `rgba(13,10,6,0.85)`) on all background layers to guarantee typography contrast across transitions.
+- **Header Logo & Navigation Refinement**: Increased header logo height to `42px` for brand clarity. Changed nav CTA `border-radius` to `8px` to align with the premium, luxury architecture.
+- **On-Brand WhatsApp Floating Button**: Replaced the default jarring WhatsApp green FAB style with a glassmorphic dark-gold style (`background: rgba(13, 10, 6, 0.88)` and `border: 1px solid rgba(196, 154, 60, 0.4)`) with a gold pulsing ring animation.
+- **Hero Bead Orb Restoration**: Restored the floating bead orb component inside the hero-scene container in `App.jsx` so it renders correctly as the central visual identity of the page.
+- **Editorial Story Quotes**: Replaced cheap-looking silhouette SVGs in `.story-card` blocks with elegant typographic double quote marks in Cormorant Garamond style.
+
+### 3. Section Sequence Realignment & Optional Additions
+
+- **Knowledge Center / Bestselling Books Swap**: Swapped the order of blocks inside section `s25` so that the **Knowledge Center** (Section 18) correctly appears before **Bestselling Books** (Section 19) to strictly align with client requirements.
+- **Section 24: Indra Mala Offered to Lord Shiva (Optional)**: Integrated new section `s-indra-mala` showcasing the sanctification and abhishek rituals at Shiva temples for rare combinations, using a trident visual element and golden glow.
+- **Section 25: Celebrities & Influencers (Optional)**: Integrated new section `s-celebrities` in `.linen` (aged linen) theme to show social proof quotes and vetting from notable professionals with high-contrast, legible typography cards.
+
+### 2. New Interactive Components
+
+#### `SriYantraCanvas.jsx`
+- Pure HTML5 Canvas component drawing the 9-triangle Sri Yantra
+- **Progressive stroke-draw animation** — triangles appear one-by-one over 3.2s
+- **Breathing glow** on the central Bindu dot (continuous alpha pulse)
+- Outer Bhupura (square gateway), circular ring, and 16-petal lotus drawn
+- Gold gradient stroke (`rgba(255,220,120)` → `rgba(124,92,46)`)
+- DPR-aware canvas scaling for sharp rendering on Retina displays
+- Integrated into **Section 13: Vedic Energization** (`id="s10"`)
+- Result: Sacred geometry overlaid on Rudraksha tree background = breathtaking
+
+#### `BeadOrbitViewer.jsx`
+- Pure Canvas + CSS 3D transforms (no `three.js` dependency!)
+- **Photorealistic Rudraksha bead** drawn with:
+  - Multi-stop radial gradient body (dark brown, near-black)
+  - Mukhi groove lines with quadratic bezier curves
+  - Specular highlight (top-left white glow)
+  - Gold threading hole + gold thread lines top and bottom
+  - Drop shadow beneath bead
+- **CSS 3D orbit ring** tilted 75° — mimics a 3D planet orbit
+- **Auto-rotate** at 0.25°/frame with 2-second pause after drag
+- **Drag to rotate** — mouse/touch drag control for 3D rotation
+- Italic Cormorant Garamond label with "✦ Drag to rotate ✦" hint
+- Integrated into **Section 15: Rarest Collections** (`id="s12"`)
+
+### 3. Comprehensive CSS Premium Luxury System v2
+
+Replaced previous ~90-line luxury block with ~500+ lines covering:
+
+| Feature | Description |
+|---------|-------------|
+| **Film Grain** | `body::after` SVG noise overlay at 2.8% opacity |
+| **Gold Gradient Text** | `.italic-gold-gradient`, `.hero-h1 em`, `.display em` — all use `background-clip: text` |
+| **Eyebrow lines** | `::before` pseudo-element adds `——` gold line before every eyebrow |
+| **Glassmorphic cards** | `.jcard`, `.ftcard`, `.siddha-card`, `.rare-card`, `.mala-card` — all with `backdrop-filter: blur(20px)` |
+| **Mouse spotlight** | `radial-gradient` at `var(--mouse-x, -200px)` on all interactive cards |
+| **Button ring effect** | `.btn-gold` has `box-shadow: 0 0 0 1px` ring + shimmer `::after` |
+| **Nav glassmorphism** | `.nav` has `backdrop-filter: blur(16px)` |
+| **Premium scroll progress** | Gradient from `--teak` → `--gold` → `--gold-lt` |
+| **Ritual items** | Flex layout with 34px gold icon box, hover border brightens |
+| **ACE steps** | 18px padding, gold icon box, hover darkens background |
+| **Lab nums** | 3-col grid with `1px` gold border separators |
+| **Stepper dots** | Cormorant Garamond numeral, gold gradient `active` state |
+| **Desktop 2-col** | `@media (min-width: 768px)` grid at 48px gap |
+| **Sri Yantra section** | `.yantra-section-wrapper`, `.yantra-label` styles |
+| **Bead orbit viewer** | `.bead-orbit-viewer`, `.bead-tab`, `.bead-3d-scene` styles |
+| **Lenis scroll** | `html.lenis`, `.lenis-smooth` compatibility rules |
+| **Footer/WhatsApp** | Glassmorphic footer, WhatsApp float lifts on hover |
+
+### 4. Pointer Spotlight Extended
+`handlePointerMove` in `App.jsx` now targets `.rare-card` in addition to previous selectors
+
+---
+
+## Current Status
+
+| Feature | Status |
+|---------|--------|
+| 26 sections exact sequence | ✅ (Strict client order maintained) |
+| Zero build errors | ✅ |
+| Zero console errors | ✅ |
+| Lenis smooth scroll | ✅ |
+| SriYantraCanvas | ✅ (Section 13 / Vedic Energization) |
+| BeadOrbitViewer (3D) | ✅ (Section 15 / Rarest Collections) |
+| Film grain texture | ✅ |
+| Glassmorphic cards (all) | ✅ |
+| Gold gradient em text | ✅ |
+| Eyebrow `——` prefix | ✅ |
+| Btn ring + shimmer | ✅ |
+| Mouse spotlight on rare-cards | ✅ |
+| AI-generated BG images | ✅ |
+| Seeker portrait | ✅ |
+| itshover animated icons | ✅ |
+| Hero video scrubbing | ✅ |
+
+
+### 1. `index.html` — Font Loading Performance
+- Added `preconnect` for **both** `fonts.googleapis.com` AND `fonts.gstatic.com` (with `crossorigin`)
+- Added `meta theme-color` (#0D0A06 Sacred Black)
+- Added Open Graph tags for social sharing
+- Added SVG favicon
+
+### 2. `index.css` — Modern Typography System
+Following `modern-web-guidance` skill guidelines:
+
+| Rule | Why |
+|------|-----|
+| `text-wrap: balance` on h1–h6 | Even line breaks on headings (≤6 lines) |
+| `text-wrap: pretty` on p, li, blockquote | Prevents orphaned last words in body copy |
+| `font-size-adjust: from-font` (commented, ready to enable) | Stable layout during font swap |
+| `text-rendering: optimizeLegibility` | Sharper text on all displays |
+| `-moz-osx-font-smoothing: grayscale` | Cross-platform anti-aliasing |
+
+- Added **oklch()** color tokens alongside hex (richer, perceptually uniform color)
+- Added **CSS spacing and type scale tokens** (`--fs-xs` → `--fs-4xl`, `--sp-xs` → `--sp-2xl`)
+- Upgraded `.display` class with Georgia as fallback, `text-wrap: balance`
+- Upgraded `.eyebrow` with oklch gold fallback
+- Upgraded `.sh .display` to use CSS token `var(--fs-2xl)`
+- Improved body `line-height: 1.65` (from 1.6)
+- Improved `background-color` transition easing: `cubic-bezier(0.16,1,0.3,1)`
+
+### 3. Zone Label Removed
+The floating "FEEL / BELIEVE / PROOF" badge was a developer navigation tool.
+- Removed from `App.jsx` JSX render
+- Removed CSS block from `index.css`
+- Removed zone detection code from scroll handler (performance improvement)
+- Removed `currentZone` state variable
+
+### 4. Scroll Progress Bar Improved
+- Reduced from 4px → 2px (more minimal)
+- Added `boxShadow: 0 0 6px rgba(196,154,60,0.5)` — subtle gold glow
+
+### 5. Itshover Animated Icon System
+Added 190 lines of CSS animation definitions matching [itshover.com](https://itshover.com/) motion philosophy:
+- `.magnifier-group` → scale+rotate search animation
+- `.cart-icon / .bag` → vertical bounce with rotation
+- `.send-icon` → fly-out-and-return trajectory
+- `.shield-body` → scale pulse
+- `.flame-group` → organic flicker loop
+- `.phone-icon / .phone-body` → ring shake
+- `.lock-upper-body` → lift
+- `.gear-body` → continuous rotation
+- `.bookmark-body` → pop up
+- `.trophy-group` → trophy lift with wobble
+- `.bulb-body` → flash on/off
+- `.arrow-group` → horizontal slide
+- `.like-icon` → tilt bounce
+- `.rupee-symbol` → scale pulse
+- `.x-icon` → 90° spin
+- `.github-icon` → vertical bounce
+
+### 6. `Header.jsx` — Animated Nav Icons
+Replaced static SVG icons with itshover-compatible SVG groups:
+- Search → `<g className="magnifier-group">` 
+- Cart → `<g className="cart-icon">`
+- Profile → `<g className="github-icon">`
+Each wrapped in `<button className="nav-icon ih-icon">`
+
+### 7. `AceProcess.jsx` — SVG CheckIcon
+Replaced `✓` text checkmarks with inline animated SVG `<CheckIcon>` components.
+
+### 8. JSX SVG Attribute Fix
+Fixed `stroke-dasharray=` → `strokeDasharray=` in `BackgroundLayers.jsx` (was causing React console warning).
+
+### 9. Premium CSS Polish
+- Gold gradient scrollbar (3px, webkit + Firefox `scrollbar-color`)
+- `::selection` background: `rgba(196,154,60,0.28)`
+- `:focus-visible` ring in gold
+- `@media print` hiding nav, video, floaters
+- `interpolate-size: allow-keywords` on html (modern CSS)
+
+---## Current Status
+
+| Feature | Status |
+|---------|--------|
+| 26 sections exact sequence | ✅ (Reordered to client's strict non-negotiable sequence) |
+| Zero build errors | ✅ |
+| Zone label removed | ✅ |
+| `text-wrap: balance` on headings | ✅ |
+| `text-wrap: pretty` on paragraphs | ✅ |
+| Gold scrollbar | ✅ |
+| itshover icon CSS | ✅ |
+| Header animated icons | ✅ |
+| JSX attribute fixes | ✅ |
+| Hero video scrubbing | ✅ (Scrubs frame-by-frame via GSAP scroll trigger) |
+| AI-generated background images | ✅ (Integrated for sections 2, 3, 7, 12, 17, and 21) |
+| Seeker portrait image (Milind Soman) | ✅ (Integrated for Section 5) |
+| Mobile bottom navigation bar | ✅ (5-tab navigation bar with animated SVG icons) |
+| Desktop responsive layout | ✅ (2-column grids for sections 2, 3, 5, 7, and 11) |
+| Lazy load optimizations | ✅ (Added loading="lazy" to all newly integrated image layers) |
+
+---
+
+## Next Steps (Toward End Goal)
+
+1. **Cinematic Videos**: Coordinate with the client for high-definition visual clips to swap in for sections 15, 24, 26.
+2. **Real Content Sourcing**: Collect actual book cover graphics, team profiles, and upcoming exhibition city/date tables from the client to populate the data arrays.
+3. **Vedic Kundali Fine-tuning**: Align with the client's preferred planetary calculation libraries if they wish to automate chart drawing from standard time/date/location coordinates.

@@ -1,0 +1,27 @@
+id="s1" data-bg="13,10,6">
+  <div className="hero-scene"></div>
+  <div className="orb" aria-hidden="true">
+    <div className="orb-core">🪬</div>
+  </div>
+  <div className="hero-content">
+    <span className="hero-eyebrow">Rudralife — Est. 1999</span>
+    <h1 className="hero-h1">A Sacred Companion<br />For Your <em>Life Journey.</em></h1>
+    <p className="hero-sub">Authentic Nepal Rudraksha, guided with expertise, tradition and 25 years of unwavering trust.</p>
+    <div className="hero-btns">
+      <a href="#s4" className="btn-gold">Begin Your Journey →</a>
+      <a href="#s7" className="btn-outline-white">New to Rudraksha? Start Here</a>
+    </div>
+  </div>
+  <div className="trust-strip">
+    <div className="ts-item"><span className="ts-val">ACE</span><span className="ts-lbl">Energized</span></div>
+    <div className="ts-item"><span className="ts-val">RRTL</span><span className="ts-lbl">Lab Certified</span></div>
+    <div className="ts-item"><span className="ts-val">100%</span><span className="ts-lbl">Ethically Sourced</span></div>
+    <div className="ts-item"><span className="ts-val">7‑Day</span><span className="ts-lbl">Returns</span></div>
+  </div>
+</section>
+
+
+{/* ══════════════════════════════════════════
+     S2 · HERO BANNER — MILIND SOMAN
+══════════════════════════════════════════ */}
+<section className="dark hero-banner-sec" 

@@ -1,0 +1,288 @@
+=== Context around line 245 ===
+}
+
+.ace-comparison {
+  background: rgba(13, 10, 6, 0.5);
+  border: 1px solid rgba(196,154,60,0.15);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 22px;
+  text-align: center;
+}
+.ace-toggle-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.ace-toggle-btn.active {
+  background: var(--gold);
+  color: var(--black);
+}
+.ace-visual-wrapper {
+
+=== Context around line 260 ===
+  padding: 8px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.ace-toggle-btn.active {
+  background: var(--gold);
+  color: var(--black);
+}
+.ace-visual-wrapper {
+  position: relative;
+  width: 140px; height: 140px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ace-bead-avatar {
+  font-size: 64px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.5s ease;
+}
+.ace-glow-ring {
+
+=== Context around line 264 ===
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+.ace-toggle-btn.active {
+  background: var(--gold);
+  color: var(--black);
+}
+.ace-visual-wrapper {
+  position: relative;
+  width: 140px; height: 140px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ace-bead-avatar {
+  font-size: 64px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.5s ease;
+}
+.ace-glow-ring {
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,92,46,0.3) 0%, transparent 70%);
+
+=== Context around line 287 ===
+  transition: transform 0.5s ease;
+}
+.ace-glow-ring {
+  position: absolute;
+  inset: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,92,46,0.3) 0%, transparent 70%);
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+.ace-visual-wrapper.energized .ace-bead-avatar {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px var(--gold));
+}
+.ace-visual-wrapper.energized .ace-glow-ring {
+  background: radial-gradient(circle, rgba(196,154,60,0.65) 0%, transparent 70%);
+  animation: aura-pulse 1.5s infinite alternate;
+}
+@keyframes aura-pulse {
+  from { transform: scale(0.9); opacity: 0.7; }
+  to { transform: scale(1.15); opacity: 1; }
+}
+
+.xray-slider-container {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 20px;
+  aspect-ratio: 1/1;
+  position: relative;
+  border-radius: 16px;
+
+=== Context around line 291 ===
+  inset: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124,92,46,0.3) 0%, transparent 70%);
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+.ace-visual-wrapper.energized .ace-bead-avatar {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 12px var(--gold));
+}
+.ace-visual-wrapper.energized .ace-glow-ring {
+  background: radial-gradient(circle, rgba(196,154,60,0.65) 0%, transparent 70%);
+  animation: aura-pulse 1.5s infinite alternate;
+}
+@keyframes aura-pulse {
+  from { transform: scale(0.9); opacity: 0.7; }
+  to { transform: scale(1.15); opacity: 1; }
+}
+
+.xray-slider-container {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 20px;
+  aspect-ratio: 1/1;
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid rgba(196,154,60,0.2);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  background: var(--black);
+
+=== Context around line 591 ===
+        <span class="arrow" style="color: var(--gold-lt);">PRIVATE ACCESS →</span>
+      </a>
+    </div>"""
+
+content = content.replace(journey_grid_search, journey_grid_replace)
+
+# 5. Section 8 (ACE Process): Inject Before/After Comparison tool
+ace_intro_search = """      <p>Every Rudraksha passes through three layers of integrity before reaching you.</p>
+    </div>"""
+
+ace_intro_replace = """      <p>Every Rudraksha passes through three layers of integrity before reaching you.</p>
+    </div>
+    
+    <div class="ace-comparison reveal">
+      <button class="ace-toggle-btn" id="aceToggle" onclick="toggleAceState()">Dormant Energy (Before ACE)</button>
+      <div class="ace-visual-wrapper" id="aceWrapper">
+        <div class="ace-glow-ring"></div>
+        <div class="ace-bead-avatar">🪬</div>
+      </div>
+      <div id="aceStateDesc" style="font-size: 12.5px; color: rgba(255,253,248,0.7); line-height: 1.6;">
+        <p>Before the ACE Process, the Rudraksha bead exhibits dormant, unaligned energy signatures with micro-blockages.</p>
+      </div>
+    </div>"""
+
+content = content.replace(ace_intro_search, ace_intro_replace)
+
+# 6. Section 9 (RRTL Lab): Inject X-Ray comparison reveal slider
+rrtl_intro_search = """      <p>India's first dedicated Rudraksha testing laboratory — where ancient beads meet modern science.</p>
+    </div>"""
+
+
+=== Context around line 595 ===
+content = content.replace(journey_grid_search, journey_grid_replace)
+
+# 5. Section 8 (ACE Process): Inject Before/After Comparison tool
+ace_intro_search = """      <p>Every Rudraksha passes through three layers of integrity before reaching you.</p>
+    </div>"""
+
+ace_intro_replace = """      <p>Every Rudraksha passes through three layers of integrity before reaching you.</p>
+    </div>
+    
+    <div class="ace-comparison reveal">
+      <button class="ace-toggle-btn" id="aceToggle" onclick="toggleAceState()">Dormant Energy (Before ACE)</button>
+      <div class="ace-visual-wrapper" id="aceWrapper">
+        <div class="ace-glow-ring"></div>
+        <div class="ace-bead-avatar">🪬</div>
+      </div>
+      <div id="aceStateDesc" style="font-size: 12.5px; color: rgba(255,253,248,0.7); line-height: 1.6;">
+        <p>Before the ACE Process, the Rudraksha bead exhibits dormant, unaligned energy signatures with micro-blockages.</p>
+      </div>
+    </div>"""
+
+content = content.replace(ace_intro_search, ace_intro_replace)
+
+# 6. Section 9 (RRTL Lab): Inject X-Ray comparison reveal slider
+rrtl_intro_search = """      <p>India's first dedicated Rudraksha testing laboratory — where ancient beads meet modern science.</p>
+    </div>"""
+
+rrtl_intro_replace = """      <p>India's first dedicated Rudraksha testing laboratory — where ancient beads meet modern science.</p>
+    </div>
+    
+    <!-- X-Ray Comparison Slider -->
+
+=== Context around line 596 ===
+
+# 5. Section 8 (ACE Process): Inject Before/After Comparison tool
+ace_intro_search = """      <p>Every Rudraksha passes through three layers of integrity before reaching you.</p>
+    </div>"""
+
+ace_intro_replace = """      <p>Every Rudraksha passes through three layers of integrity before reaching you.</p>
+    </div>
+    
+    <div class="ace-comparison reveal">
+      <button class="ace-toggle-btn" id="aceToggle" onclick="toggleAceState()">Dormant Energy (Before ACE)</button>
+      <div class="ace-visual-wrapper" id="aceWrapper">
+        <div class="ace-glow-ring"></div>
+        <div class="ace-bead-avatar">🪬</div>
+      </div>
+      <div id="aceStateDesc" style="font-size: 12.5px; color: rgba(255,253,248,0.7); line-height: 1.6;">
+        <p>Before the ACE Process, the Rudraksha bead exhibits dormant, unaligned energy signatures with micro-blockages.</p>
+      </div>
+    </div>"""
+
+content = content.replace(ace_intro_search, ace_intro_replace)
+
+# 6. Section 9 (RRTL Lab): Inject X-Ray comparison reveal slider
+rrtl_intro_search = """      <p>India's first dedicated Rudraksha testing laboratory — where ancient beads meet modern science.</p>
+    </div>"""
+
+rrtl_intro_replace = """      <p>India's first dedicated Rudraksha testing laboratory — where ancient beads meet modern science.</p>
+    </div>
+    
+    <!-- X-Ray Comparison Slider -->
+    <div class="xray-slider-container reveal">
+
+=== Context around line 605 ===
+      <button class="ace-toggle-btn" id="aceToggle" onclick="toggleAceState()">Dormant Energy (Before ACE)</button>
+      <div class="ace-visual-wrapper" id="aceWrapper">
+        <div class="ace-glow-ring"></div>
+        <div class="ace-bead-avatar">🪬</div>
+      </div>
+      <div id="aceStateDesc" style="font-size: 12.5px; color: rgba(255,253,248,0.7); line-height: 1.6;">
+        <p>Before the ACE Process, the Rudraksha bead exhibits dormant, unaligned energy signatures with micro-blockages.</p>
+      </div>
+    </div>"""
+
+content = content.replace(ace_intro_search, ace_intro_replace)
+
+# 6. Section 9 (RRTL Lab): Inject X-Ray comparison reveal slider
+rrtl_intro_search = """      <p>India's first dedicated Rudraksha testing laboratory — where ancient beads meet modern science.</p>
+    </div>"""
+
+rrtl_intro_replace = """      <p>India's first dedicated Rudraksha testing laboratory — where ancient beads meet modern science.</p>
+    </div>
+    
+    <!-- X-Ray Comparison Slider -->
+    <div class="xray-slider-container reveal">
+      <div class="xray-layer internal">
+        <svg class="xray-svg-frame" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="40" fill="none" stroke="#00d2ff" stroke-width="2" stroke-dasharray="2,2" opacity="0.8" />
+          <path d="M50,15 Q65,40 50,85" fill="none" stroke="#00d2ff" stroke-width="1.5" opacity="0.6" />
+          <path d="M50,15 Q35,40 50,85" fill="none" stroke="#00d2ff" stroke-width="1.5" opacity="0.6" />
+          <path d="M15,50 Q40,65 85,50" fill="none" stroke="#00d2ff" stroke-width="1.5" opacity="0.6" />
+          <path d="M15,50 Q40,35 85,50" fill="none" stroke="#00d2ff" stroke-width="1.5" opacity="0.6" />
+          <circle cx="38" cy="38" r="4" fill="#00d2ff" filter="drop-shadow(0 0 4px #00d2ff)" />
+          <circle cx="62" cy="38" r="4" fill="#00d2ff" filter="drop-shadow(0 0 4px #00d2ff)" />
+

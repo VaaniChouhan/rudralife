@@ -1,0 +1,114 @@
+=== SECTION 3 ===
+id="s3" data-bg="20,14,6">
+  <div className="inner">
+    <div className="sh reveal">
+      <span className="eyebrow">Our Community</span>
+      <h2 className="display">Trusted By Seekers<br />Across The World.</h2>
+      <p>From first-time buyers to lifelong collectors — every journey matters.</p>
+    </div>
+    <div className="world-trust reveal">
+      <div className="map-world-container reveal">
+      <div className="map-world-dots"></div>
+      <div className="map-pulse-dot" style={{top: '60%', left: '63%'}} title="Mumbai"></div>
+      <div className="map-pulse-dot" style={{top: '55%', left: '62%'}} title="Delhi"></div>
+      <div className="map-pulse-dot" style={{top: '52%', left: '56%'}} title="Dubai"></div>
+      <div className="map-pulse-dot" style={{top: '35%', left: '47%'}} title="London"></div>
+      <div className="map-pulse-dot" style={{top: '38%', left: '24%'}} title="New York"></div>
+      <div className="map-pulse-dot" style={{top: '66%', left: '74%'}} title="Singapore"></div>
+      <div className="map-pulse-dot" style={{top: '80%', left: '88%'}} title="Sydney"></div>
+    </div>
+      <p style={{fontSize: '13px', color: 'rgba(255,253,248,.55)', marginBottom: '14px'}}>
+        Seekers across India, UAE, US, UK, Singapore, Australia and more
+      </p>
+      <div className="trust-chips">
+        <div className="chip"><span>🧘</span>Seekers</div>
+        <div className="chip"><span>💼</span>Professionals</div>
+        <div className="chip"><span>👑</span>Leaders</div>
+        <div className="chip"><span>🏃</span>Athletes</div>
+        <div className="chip"><span>🎨</span>Artists</div>
+        <div className="chip"><span>🚀</span>Entrepreneurs</div>
+        <div className="chip"><span>👨‍👩‍👧‍👦</span>Families</div>
+      </div>
+    </div>
+    <div className="trust-stats reveal">
+      <div className="ts-cell"><span className="ts-num">1,008+</span><span className="ts-lab">Google Reviews</span></div>
+      <div className="ts-cell"><span className="ts-num">1,000+</span><span className="ts-lab">Written Stories</span></div>
+      <div className="ts-cell"><span className="ts-num">Video</span><span className="ts-lab">Testimonials</span></div>
+    </div>
+    <div style={{textAlign: 'center'}} className="reveal">
+      <a href="#" className="btn-outline">Read 1,000+ Stories →</a>
+    </div>
+  </div>
+</section>
+
+
+{/* ══════════════════════════════════════════
+     S4 · GUIDED DISCOVERY
+══════════════════════════════════════════ */}
+<section className="dark"
+
+=== SECTION 4 ===
+id="s4" data-bg="10,8,4">
+  <div className="inner">
+    <div className="sh reveal">
+      <span className="eyebrow">Your Path</span>
+      <h2 className="display">How Would You Like<br />To Begin?</h2>
+      <p>Every journey is unique. Discover the path that resonates with you.</p>
+    </div>
+    <div className="journey-grid reveal">
+      <a href="#" className="jcard">
+        <span className="jcard-icon">☮️</span>
+        <h3>Seeking Peace</h3>
+        <p>Find clarity and calm through the right Rudraksha</p>
+        <span className="arrow">Explore →</span>
+      </a>
+      <a href="#" className="jcard">
+        <span className="jcard-icon">🛡️</span>
+        <h3>Protection &amp; Safety</h3>
+        <p>Shield yourself and family from negative energies</p>
+        <span className="arrow">Explore →</span>
+      </a>
+      <a href="#" className="jcard">
+        <span className="jcard-icon">🌱</span>
+        <h3>Spiritual Growth</h3>
+        <p>Deepen your practice and divine connection</p>
+        <span className="arrow">Explore →</span>
+      </a>
+      <a href="#" className="jcard">
+        <span className="jcard-icon">🎯</span>
+        <h3>Guidance &amp; Clarity</h3>
+        <p>Navigate life's crossroads with focused intention</p>
+        <span className="arrow">Explore →</span>
+      </a>
+      <a href="#" className="jcard" style={{gridColumn: '1 / -1', background: 'rgba(196,154,60,0.08)', borderColor: 'rgba(196,154,60,0.35)'}}>
+        <span className="jcard-icon">👑</span>
+        <h3>I'm Looking for Rare Pieces</h3>
+        <p>Access our exclusive collector's selection and sacred acquisitions</p>
+        <span className="arrow" style={{color: 'var(--gold-lt)'}}>PRIVATE ACCESS →</span>
+      </a>
+    </div>
+    <AstroWizard />
+{/* 5-stage progression stepper */}
+    <div className="stepper-container reveal">
+      <span className="eyebrow" style={{marginBottom: '12px', display: 'block'}}>Rudraksha Learning Path</span>
+      <div className="stepper-line">
+        <div className="step-dot active" >1</div>
+        <div className="step-dot" >2</div>
+        <div className="step-dot" >3</div>
+        <div className="step-dot" >4</div>
+        <div className="step-dot" >5</div>
+      </div>
+      <div className="stepper-details-box" id="stepperDetails">
+        <h4 id="stepperTitle" className="display" style={{fontSize: '16px', color: 'var(--white)', marginBottom: '4px'}}>Level 1: Beginner</h4>
+        <p id="stepperDesc" style={{fontSize: '12.5px', color: 'rgba(255,253,248,0.6)', lineHeight: '1.5'}}>Build a strong foundation. Focus on purification and daily alignment. Recommended: 5 Mukhi, 6 Mukhi, or basic Rudraksha bracelets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{/* ══════════════════════════════════════════
+     S5 · 3 GENERATIONS OF LEGACY
+══════════════════════════════════════════ */}
+<section className="light"
+

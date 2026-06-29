@@ -1,0 +1,50 @@
+L501: <div>
+L502: <h4>Cleanse &amp; Prepare</h4>
+L503: <p>Beads are cleansed with Gangajal, sandalwood paste and Panchgavya to purify before energization begins.</p>
+L504: </div>
+L505: </div>
+L506: <div className="ace-step">
+L507: <div className="ace-icon">✨</div>
+L508: <div>
+L509: <h4>Energetic Alignment</h4>
+L510: <p>Vedic Brahmins perform Abhishek and Pranapratishtha — invoking the presiding deity of each specific Mukhi.</p>
+L511: </div>
+L512: </div>
+L513: </div>
+L514: <div style={{textAlign: 'center'}} className="reveal">
+L515: <a href="#" className="btn-outline">Learn About ACE →</a>
+L516: </div>
+L517: </div>
+L518: </section>
+L519: 
+L520: 
+L521: {/* ══════════════════════════════════════════
+L522: S9 · RRTL LAB
+L523: ══════════════════════════════════════════ */}
+L524: <section className="light" id="s9" data-bg="250,246,238">
+L525: <div className="inner">
+L526: <div className="sh reveal">
+L527: <span className="eyebrow" style={{color: 'var(--teak)'}}>Science &amp; Trust</span>
+L528: <h2 className="display" style={{color: 'var(--black)'}}>Authenticity You<br />Can Verify.</h2>
+L529: <p>India's first dedicated Rudraksha testing laboratory — where ancient beads meet modern science.</p>
+L530: </div>
+L531: 
+L532: <XRaySlider />
+L533: 
+L534: <div className="lab-nums reveal">
+L535: <div className="lnum"><span className="n">2.75L+</span><span className="l">Beads Tested</span></div>
+L536: <div className="lnum"><span className="n">10+</span><span className="l">Verification Parameters</span></div>
+L537: <div className="lnum"><span className="n">Strict</span><span className="l">Rejection Standards</span></div>
+L538: </div>
+L539: <div className="lab-steps reveal">
+L540: <div className="lstep">
+L541: <div className="ldot">1</div>
+L542: <div>
+L543: <h4>Visual Inspection</h4>
+L544: <p>Examined under magnification to count Mukhs and check for artificial cuts or surface damage.</p>
+L545: </div>
+L546: </div>
+L547: <div className="lstep">
+L548: <div className="ldot">2</div>
+L549: <div>
+L550: <h4>X-Ray Analysis</h4>

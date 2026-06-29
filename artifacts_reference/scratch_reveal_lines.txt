@@ -1,0 +1,6 @@
+Block 1, L75: /* ── Scroll Reveal ── */
+Block 1, L76: const revealObs = new IntersectionObserver((entries) => {
+Block 1, L79: e.target.classList.add('visible');
+Block 1, L80: revealObs.unobserve(e.target);
+Block 1, L85: document.querySelectorAll('.reveal, .reveal-up').forEach(el => revealObs.observe(el));
+Block 1, L327: function updateXrayReveal(val) {

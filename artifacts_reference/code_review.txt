@@ -1,0 +1,38 @@
+# Code Review Report (`/review`) — Rudralife Landing Page
+
+This document provides a comprehensive **five-axis structural review** of the Rudralife website codebase following the reordering and layout upgrades.
+
+---
+
+## 1. Correctness & Compliance
+*   **Section Sequence**: Verified that all 26 sections appear in the exact chronological and psychological sequence requested by the client (Hero $\rightarrow$ Guided Journeys $\rightarrow$ First Time Buying $\rightarrow$ Stories of Transformation $\rightarrow$ Milind Soman $\rightarrow$ ... $\rightarrow$ Final CTA).
+*   **HTML/JSX Validation**: Verified that all tags are closed properly. The recent malformed React comment above the `#s-siddha-mala` section was resolved.
+*   **Vite Compiler Status**: The project compiles successfully in `349ms` with zero errors or warnings.
+*   **Responsive Breakpoints**:
+    *   **Desktop**: Widths $\ge 1024\text{px}$ trigger modern 2-column layouts for sections 2, 3, 5, 7, and 11, placing interactive components and text side-by-side.
+    *   **Mobile**: Widths $< 1024\text{px}$ hide desktop containers and activate the 5-tab fixed bottom navigation bar smoothly.
+
+---
+
+## 2. Readability & Aesthetics
+*   **Contrast Ratios**: Verified that light sections (`.light` and `.linen`) use Near Black (`#1A1209`) instead of pure black for body text, maintaining a warm, premium reading experience.
+*   **Typography**: Headings use `text-wrap: balance` to prevent awkward line breaks, and body copy uses `text-wrap: pretty` to eliminate orphans.
+*   **Clean Markup**: Confirmed that all floating dev labels (like the `zone-label` developer tag) are completely removed.
+
+---
+
+## 3. Architecture & State Management
+*   **Decoupled Background Swaps**: The scrolling sections use scroll-triggered data attributes (`data-bg`) and an `IntersectionObserver` to trigger transitions in the fixed background layers component. This architecture remains highly robust even after rearranging the section order in `App.jsx`.
+*   **Vedic AstroWizard & X-Ray Slider**: Both components are built using native SVG vectors and local React states, avoiding direct DOM injections and ensuring reliable event handling.
+
+---
+
+## 4. Security Audit
+*   **Tab-Nabbing Protection**: Verified that the persistent WhatsApp anchor tag and all outbound storytelling links have `target="_blank"` and `rel="noopener noreferrer"` attributes.
+*   **Form Sanitization**: The AstroWizard input fields validate birth coordinates and intentions before updating local state.
+
+---
+
+## 5. Performance & Asset Delivery
+*   **Image Lazy Loading**: Newly integrated AI-generated background images and the Milind Soman portrait card utilize `loading="lazy"` attributes to prevent blocking the initial paint of the Hero banner.
+*   **Asset Footprint**: Background images have been optimized and blended with dark radial gradients, minimizing layout shifts.

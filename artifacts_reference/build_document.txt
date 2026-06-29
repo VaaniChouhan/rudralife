@@ -1,0 +1,897 @@
+# RUDRALIFE HOMEPAGE — COMPLETE BUILD DOCUMENT
+> Last updated: 2026-06-27
+> Status: Foundations built · Videos & images pending · Desktop not yet designed
+
+---
+
+## 1. PROJECT BRIEF
+
+```
+Client          → Rudralife
+Website         → rudralife.com
+Project         → Homepage Redesign
+Device Priority → Mobile First (primary)
+                  Desktop (secondary, not discussed yet)
+Constraint      → All 26 sections in exact order
+                  (psychological sequence — non negotiable)
+Experience Type → Scroll-based cinematic narrative
+                  One continuous world, not 26 separate pages
+```
+
+---
+
+## 2. BRAND TOKENS
+
+### Colours
+```
+Sacred Black    → #0D0A06   (hero bg, dark sections)
+Warm Parchment  → #FAF6EE   (light section bg)
+Temple Gold     → #C49A3C   (primary accent, CTAs, eyebrows)
+Gold Light      → #E2C47A   (hover states, highlights)
+Deep Teak       → #7C5C2E   (secondary warm, buttons)
+Aged Linen      → #E8DFC8   (subtle dividers, card bg light)
+Muted Warm      → #9E8B6E   (body text on light bg)
+Sacred White    → #FFFDF8   (text on dark bg)
+Near Black      → #1A1209   (text on light bg)
+```
+
+### Typography
+```
+Display         → Cormorant Garamond
+                  weights: 300, 400, 500, 600
+                  styles: regular, italic
+                  used for: all headlines, quotes, large numbers
+
+Body            → Inter
+                  weights: 300, 400, 500, 600
+                  used for: body text, labels, CTAs, eyebrows
+
+Eyebrow style   → Inter 10px, weight 600
+                  letter-spacing 0.18em
+                  text-transform uppercase
+                  colour always #C49A3C
+```
+
+### Spacing
+```
+Section padding     → 72px top and bottom (mobile)
+Max content width   → 480px centered (mobile)
+Card border radius  → 14–18px
+Card padding        → 20px
+Grid gap            → 12px
+```
+
+### Recurring Elements
+```
+Sacred divider  → thin gold line + center dot
+                  appears between eyebrow and headline
+                  on emotionally significant sections
+
+Card border     → 1px solid rgba(196,154,60,0.2)
+Card bg dark    → #1A1209 at 92% opacity
+Card bg light   → rgba(196,154,60,0.06)
+Card hover      → border → rgba(196,154,60,1.0)
+                  bg → rgba(196,154,60,0.08)
+
+CTA primary     → bg #C49A3C, text #1A1209
+                  border-radius 30px
+                  padding 13px 28px
+                  font Inter 12px weight 600
+                  letter-spacing 0.1em uppercase
+
+CTA secondary   → border 1px #C49A3C, text #C49A3C
+                  same sizing as primary
+
+CTA whatsapp    → bg #25D366, text white
+```
+
+---
+
+## 3. NAVIGATION
+
+### Top Nav (Fixed)
+```
+Background      → rgba(13,10,6,0.92) + backdrop blur 12px
+Border bottom   → 1px solid rgba(196,154,60,0.15)
+Left            → RUDRALIFE wordmark (Cormorant Garamond, gold)
+Right           → Search icon + Cart icon + Consult CTA button
+Height          → 52px
+```
+
+### Bottom Nav (Fixed, Mobile)
+```
+Background      → rgba(13,10,6,0.96) + backdrop blur 16px
+Border top      → 1px solid rgba(196,154,60,0.15)
+5 tabs          → Home / Collections / Guidance / Rare / Account
+Active state    → gold label
+Icon size       → 20px
+```
+
+---
+
+## 4. THE OPENING SEQUENCE
+
+```
+Duration        → 10 seconds
+Type            → AI-generated cinematic video
+                  seamless, no hard cuts
+Plays           → Once on page load, auto
+                  before any section is visible
+```
+
+### Beat by Beat
+```
+0:00–0:01   Pure white screen
+            Singing bowl strike, one note held
+            Complete stillness
+
+0:01–0:03   White warms and thins
+            Himalayan aerial descent begins
+            Already moving, already inside it
+            Mount Kailash identified ahead
+            Zooming toward it specifically
+
+0:03–0:05   Lord Shiva revealed on Kailash
+            Photorealistic, full reverence
+            Padmasana seated, deep meditation
+            Blue-white skin, jata with Ganga
+            Crescent moon, Rudraksha mala visible
+            Trishul beside him in snow
+            Snow settled on shoulders
+            Eyes closed, cosmic stillness
+            Camera zooming in slowly with reverence
+            All three eyes present — closed
+
+0:05–0:07   Zoom into his face
+            All eyes visible — regular and third
+            Third eye most luminous — held like a breath
+            A single tear forms at corner of his eye
+            The Shiva Purana version:
+            tears of compassion after
+            thousand years of meditation
+            for the welfare of all beings
+            The tear holds — the longest pause
+            in the entire sequence
+
+0:07–0:08   The tear falls
+            Slow motion, perfectly centered
+            Luminous, golden-white
+            Ancient Himalayan earth below
+            Complete audio silence for this moment
+
+0:08–0:09   Earth → shoot → tree → bead
+            Compressed, fast, mythic
+            Camera moves through not watching
+            Deep blue Rudraksha fruit opens
+            Brown bead revealed in first light
+
+0:09–0:10   Match dissolve
+            Bead stays centered
+            Leaf dissolves, human hands dissolve in
+            Himalayan valley behind the hands
+            Camera stills completely
+
+0:10        Hero text arrives word by word
+            Video breathes slowly behind it
+```
+
+### Generation Specs
+```
+Tool            → Midjourney v6 for Shiva reference frame
+                  then Runway Gen-3 or Kling 1.6
+                  feed reference frame as starting image
+
+Format          → 9:16 vertical
+Camera          → ARRI Alexa anamorphic
+Grade           → Kodak Vision3 500T film emulation
+Colour          → Cold blue-white for Kailash/Shiva scenes
+                  warming to gold as tear falls and tree grows
+Movement        → Always forward, never stopping
+                  only the tear moment slows
+
+Generate as     → 5 overlapping clips (3 sec each, 1 sec overlap)
+Stitch in       → CapCut / Premiere
+Transition      → DISSOLVE on each overlap, ease in ease out
+```
+
+### Audio
+```
+0:00        Himalayan singing bowl strike
+0:01–0:04   Cold mountain wind rising
+0:04–0:06   Wind fades — silence approaching Shiva
+0:06–0:07   Complete silence — tear forms and holds
+0:07–0:08   Single deep bansuri note as tear falls
+0:08–0:09   Note fades, warm tanpura drone begins
+0:09+       Tanpura holds under hero text
+```
+
+---
+
+## 5. THE 26 SECTIONS — COMPLETE ARCHITECTURE
+
+### Section Type Key
+```
+🎬 FULL BG VIDEO     → cinematic, emotional peak
+🖼 STATIC BG IMAGE   → atmospheric but UI-heavy
+📦 UI SECTION        → content is the focus
+🎥 INLINE VIDEO      → embedded player within section
+```
+
+---
+
+### SECTION 1 — HERO BANNER
+```
+Type            → 🎬 FULL BG VIDEO
+                  (the intro sequence IS this section's bg)
+Purpose         → Emotional connection with Rudraksha
+Header          → A Sacred Companion For Your Life Journey
+Subtext         → Authentic Nepal Rudraksha, guided with
+                  expertise, tradition and trust
+
+Content overlay →
+  Eyebrow       → "Rudralife — Est. 1999"
+  H1            → Display, clamp(36px, 10vw, 52px)
+                  em tags → italic gold "Life Journey"
+  Subtext       → Inter 14px, 60% white opacity
+  CTA 1         → "Begin Your Journey →" (gold filled)
+  CTA 2         → "New to Rudraksha? Start Here" (outline white)
+
+Trust strip     → Fixed at bottom of hero (above bottom nav)
+                  4 items: 25+ Years / 2.75L+ Beads /
+                  ISO Certified / 7-Day Return
+                  Background: rgba(196,154,60,0.08)
+                  Border top: 1px rgba(196,154,60,0.15)
+
+Transition out  → Hero video scales 103%, desaturates 20%
+                  parchment overlay fades in
+                  Section 2 bg fades up beneath
+```
+
+---
+
+### SECTION 2 — GUIDED JOURNEYS
+```
+Type            → 🖼 STATIC BG IMAGE
+Purpose         → Help visitors feel understood
+Header          → How Would You Like To Begin?
+Subtext         → Every journey is unique. Discover the
+                  path that resonates with you.
+
+BG Image        → Ancient stone temple pathway at dawn
+                  oil diyas lining both sides
+                  path curves upward out of sight
+                  warm gold light at the destination
+                  mist between the lamp flames
+
+Content         → 2×2 grid of journey cards
+Cards           →
+  1. Seeking Peace      → 5 Mukhi recommended
+  2. Protection/Safety  → 6 Mukhi recommended
+  3. Spiritual Growth   → 14 Mukhi recommended
+  4. Guidance/Clarity   → 7 Mukhi recommended
+
+Card tap expand → shows Rudraksha brief description
+                  + "Speak to Expert" secondary CTA
+
+CTA             → "Get Personalised Recommendation →"
+                  full width, gold filled
+```
+
+---
+
+### SECTION 3 — FIRST TIME BUYING
+```
+Type            → 🖼 STATIC BG IMAGE
+Purpose         → Reduce anxiety and friction
+Header          → New To Rudraksha? Start With Confidence
+Subtext         → Guidance, exclusive benefits and expert
+                  support for your first step
+
+BG Image        → Warm consultation room interior
+                  wooden table, warm window light
+                  safe, unhurried, zero pressure
+
+Content         →
+  Benefits list →
+    · 10% welcome benefit on first purchase
+    · Complimentary Puja Video in your name
+    · Free 7 Mukhi Devi Lakshmi Bracelet
+      on orders above ₹15,001
+    · Dedicated expert guidance
+    · Care & Maintenance guide included
+
+CTA             → "Speak With An Expert →" full width gold
+```
+
+---
+
+### SECTION 4 — STORIES OF TRANSFORMATION
+```
+Type            → 📦 UI SECTION + 🎥 INLINE VIDEO
+Purpose         → Show outcomes before explanations
+Header          → Real Journeys. Real Transformations
+Subtext         → Discover how Rudraksha has supported
+                  seekers across the world
+
+BG              → #0D0A06 solid dark
+
+Content         →
+  Horizontal scroll cards (snap scroll)
+  Stats row: 50+ Videos / 1008+ Reviews / 1000+ Written / 4.9★
+
+CTA             → "Watch All Video Testimonials →"
+```
+
+---
+
+### SECTION 5 — MILIND SOMAN
+```
+Type            → 🎬 FULL BG VIDEO + 🎥 INLINE CLIP
+Purpose         → Demonstrate authenticity through experience
+Header          → From Seeker To Advocate
+Subtext         → A journey that began with a Siddha Mala
+                  and evolved through genuine experience
+
+BG Video        → Athletic silhouette at ocean/mountain dawn
+                  Siddha Mala visible at neck
+
+Quote           → "I wear my Siddha Mala every day..."
+Attribution     → "Milind Soman, Fitness Icon & Ironman"
+
+CTA             → "Watch His Story →" outline gold
+```
+
+---
+
+### SECTION 6 — OUR CLIENTS
+```
+Type            → 📦 UI SECTION
+Purpose         → Mass validation
+Header          → Trusted By Seekers Across The World
+
+BG              → #FAF6EE warm parchment
+
+Content         →
+  Client pills  → Seekers / Professionals / Leaders /
+                  Athletes / Artists / Entrepreneurs / Families
+  Stat grid     → 10K+ Journeys / 50+ Videos / 4.9★ Rating
+
+CTA             → "Read 1000+ Stories →" teak outline
+```
+
+---
+
+### SECTION 7 — THREE GENERATIONS
+```
+Type            → 🖼 STATIC BG IMAGE
+Purpose         → Establish authority
+Header          → Three Generations. One Lifelong Commitment
+
+BG Image        → Three pairs of hands passing Rudraksha
+                  warm firelight, aged wooden shelves behind
+
+Content         → Timeline: I / II / III with descriptions
+
+CTA             → "Our Legacy Story →" gold filled
+```
+
+---
+
+### SECTION 8 — HEART BEHIND RUDRALIFE
+```
+Type            → 📦 UI SECTION
+Purpose         → Humanize the organization
+Header          → The People Behind Every Blessing
+
+BG              → #0D0A06 dark
+
+Content         → 2×2 team grid
+                  Lab Scientists / Vedic Brahmins /
+                  Guiding Experts / Mala Artisans
+
+CTA             → "Meet The Full Team →" outline gold
+```
+
+---
+
+### SECTION 9 — HEAD OFFICE
+```
+Type            → 📦 UI SECTION (real photos)
+Purpose         → Make Rudralife tangible and real
+Header          → A Place Built On Faith And Trust
+
+BG              → #FAF6EE parchment
+
+Content         → 3 real office photos (1 wide + 2 square)
+                  Quote card with gold left border
+
+CTA             → "Take A Virtual Tour →" teak outline
+
+NOTE            → Real photography needed from client
+```
+
+---
+
+### SECTION 10 — 25 YEARS OF LEGACY
+```
+Type            → 🎬 FULL BG VIDEO
+Purpose         → Institutional trust
+Header          → 25 Years Of Serving Spiritual Seekers
+
+BG Video        → Ancient banyan tree at sunrise
+                  camera looking up through canopy
+
+Content         → Ghost "25" number (stroke only, no fill)
+                  5 milestone items with year + description
+
+VIDEO 3 needed
+```
+
+---
+
+### SECTION 11 — RRTL LAB
+```
+Type            → 📦 UI SECTION
+Purpose         → Prove authenticity scientifically
+Header          → Authenticity You Can Verify
+
+BG              → #0D0A06 dark, clinical feel
+
+Content         → Stat row: 2.75L+ / 10+ Parameters / 90%+ Rejection
+                  4-step process (Visual / X-Ray / Water / Certificate)
+
+CTA             → "Explore The RRTL Lab →" gold filled
+```
+
+---
+
+### SECTION 12 — ACE PROCESS
+```
+Type            → 🖼 STATIC BG IMAGE
+Purpose         → Highlight differentiation
+Header          → More Than Authentic. Carefully Energized
+
+BG Image        → Copper yantra plate, Rudraksha bead at center
+                  warm firelight reflections in copper
+
+Content         → 3-step flow with connecting gold line
+                  Authentic Selection → Vedic Certification → Energetic Alignment
+
+CTA             → "Learn About The ACE Process →" outline
+```
+
+---
+
+### SECTION 13 — VEDIC ENERGIZATION
+```
+Type            → 🎬 FULL BG VIDEO + 🎥 INLINE CLIP
+Purpose         → Spiritual differentiation
+Header          → Prepared With Intention And Reverence
+
+BG Video        → Sacred havan kund burning
+                  bright orange gold flames, thick white smoke
+
+Content         → 4 ritual items
+                  🔥 Havan / 📿 Beej Mantra / 🌺 Abhishek / 🙏 Personal Dedication
+
+CTA             → "Watch The Energization Process →" outline white
+
+VIDEO 4 needed
+```
+
+---
+
+### SECTION 14 — MALA MAKING MASTERY
+```
+Type            → 📦 UI SECTION
+Purpose         → Show craftsmanship
+Header          → Crafted To Be Worn For A Lifetime
+
+BG              → #FAF6EE parchment light
+
+Content         → 3×2 grid: Gold / Silver / Thread / Sphatik / Bead / Full Mala
+
+CTA             → "Explore All Malas →" teak bg
+```
+
+---
+
+### SECTION 15 — RAREST COLLECTION
+```
+Type            → 🎬 FULL BG VIDEO
+Purpose         → Aspirational positioning
+Header          → Among The World's Most Extraordinary Rudraksha
+
+BG Video        → Single rare bead in dramatic darkness
+                  spotlight from above, camera slowly orbiting
+
+Content         → 3 rare item cards vertical stack
+                  Gauri Shankar / 21 Mukhi / Trijuti
+
+CTA             → "Explore Rare Collections →" outline gold
+
+VIDEO 5 needed
+```
+
+---
+
+### SECTION 16 — WORLD'S LARGEST EXHIBITIONS
+```
+Type            → 📦 UI SECTION
+Purpose         → Experiential trust
+Header          → Experience Rudraksha In Person
+
+BG              → #FAF6EE parchment
+
+Content         → Map placeholder (replace with real interactive map)
+                  Stats: 20+ Cities / 5+ International
+                  Upcoming city list + dates (real data from client)
+
+CTA             → "Find An Exhibition Near You →" gold
+```
+
+---
+
+### SECTION 17 — RUDRAKSHA PUJAS
+```
+Type            → 🖼 STATIC BG IMAGE
+Purpose         → Show support beyond purchase
+Header          → Your Journey Continues Beyond Ownership
+
+BG Image        → Overhead puja setup flat lay
+                  brass thali, diya, kumkum, flowers, mala at center
+
+Content         → 3 puja cards
+                  Rudrabhishek / Navgraha / Mahamrityunjaya
+
+CTA             → "Explore All Pujas →" outline gold
+```
+
+---
+
+### SECTION 18 — KNOWLEDGE CENTER
+```
+Type            → 📦 UI SECTION
+Purpose         → Education and engagement
+Header          → Learn. Reflect. Grow
+
+BG              → #FAF6EE parchment
+
+Content         → Tab bar: Blogs / Podcasts / Videos
+                  3 content cards per tab (JS-powered)
+
+CTA             → "Explore Knowledge Center →" teak outline
+```
+
+---
+
+### SECTION 19 — BESTSELLING BOOKS
+```
+Type            → 📦 UI SECTION
+Purpose         → Establish intellectual authority
+Header          → Go Deeper Into The World Of Rudraksha
+
+BG              → #0D0A06 dark
+
+Content         → Horizontal snap scroll
+                  4 book cards with real cover images
+
+CTA             → "Browse All Books →" outline gold
+
+NOTE            → Real book cover images needed from client
+```
+
+---
+
+### SECTION 20 — FIGHT AGAINST FAKES
+```
+Type            → 📦 UI SECTION
+Purpose         → Protect users (empower not alarm)
+Header          → Know The Difference. Protect Your Journey
+
+BG              → #FAF6EE parchment
+
+Content         → Alert banner (warm red tint, not aggressive)
+                  2×2 fake grid: common fakes identified
+                  Tone: empowering, not scary
+
+CTA             → "Download Free Authenticity Guide →" teak bg
+```
+
+---
+
+### SECTION 21 — OUR PROMISE & TRANSPARENCY
+```
+Type            → 🖼 STATIC BG IMAGE
+Purpose         → Remove risk
+Header          → Guidance Without Hidden Conditions
+
+BG Image        → Morning window, sheer white curtain
+                  Rudraksha mala on window latch
+                  lightest, most open scene in the sequence
+
+Content         → 7-day badge (centered, Cormorant 48px)
+                  4 promise cards vertical
+                  ✅ Genuine Nepal / 🔒 No Hidden Policies /
+                  📞 Guidance Before Sales / ♾ Lifetime Support
+```
+
+---
+
+### SECTION 22 — RUDRALIFE CARES
+```
+Type            → 📦 UI SECTION
+Purpose         → Show values
+Header          → Spirituality Finds Meaning Through Service
+
+BG              → #E8DFC8 aged linen (warmest light section)
+
+Content         → 2×2 grid
+                  🏛 Temple Support / 📚 Education /
+                  ❤ Charitable Causes / 🌍 UNICEF Partnership
+```
+
+---
+
+### SECTION 23 — JOIN OUR COMMUNITY
+```
+Type            → 📦 UI SECTION
+Purpose         → Build belonging
+Header          → You Are Not Walking This Path Alone
+
+BG              → #0D0A06 dark
+
+Content         → Community quote
+                  2×2 social grid:
+                  Instagram (195K+) / YouTube (65K+) /
+                  LinkedIn / WhatsApp
+
+CTA             → "Follow Our Journey →"
+```
+
+---
+
+### SECTION 24 — INDRA MALA (OPTIONAL)
+```
+Type            → 🎬 FULL BG VIDEO
+Purpose         → Create sacred significance
+Header          → Offered At The Feet Of Mahadev
+
+BG Video        → Ancient Shiva temple interior at night
+                  Shivalingam + hundreds of diyas
+                  thick incense smoke, most sacred scene
+
+VIDEO 6 needed
+```
+
+---
+
+### SECTION 25 — CELEBRITIES & INFLUENCERS (OPTIONAL)
+```
+Type            → 📦 UI SECTION
+Purpose         → Additional social proof
+Header          → Chosen By Those Who Value Authenticity
+
+BG              → #FAF6EE parchment light
+
+Content         → Horizontal snap scroll chips
+                  Milind Soman / Film & TV / Spiritual Leaders /
+                  Wellness Creators / Sports Personalities
+```
+
+---
+
+### SECTION 26 — FINAL CTA
+```
+Type            → 🎬 FULL BG VIDEO
+Purpose         → Convert with confidence
+Header          → Begin Your Journey With Confidence
+
+BG Video        → Same Himalayas as intro — now at night
+                  Full moon rising, meditating figure (back to camera)
+                  Rudraksha mala visible in clasped hands
+                  The circle is complete
+
+Content         → 3 CTAs:
+                  "Consult An Expert →" (gold filled)
+                  "💬 WhatsApp Us Now" (green)
+                  "Browse Collections" (outline white)
+
+VIDEO 7 needed
+```
+
+---
+
+## 6. TRANSITION GRAMMAR — COMPLETE RULES
+
+```
+TYPE 1  Environmental Continuation
+        Used between: sections in same emotional zone
+        Method: bg dims to 20%, next bg fades up behind
+        Duration: 800ms
+        Easing: cubic-bezier(0.16, 1, 0.3, 1)
+
+TYPE 2  Match Cut
+        Used when: entering or exiting video sections
+        Method: visual element rhymes between sections
+                (bead → bead / tree → tree / lamp → lamp)
+                the cut is instant — the rhyme is seamless
+
+TYPE 3  Exhale
+        Used when: moving from UI section to video section
+        Duration: 1200ms total
+        Method: UI fades → colour holds 1 second → video emerges
+
+TYPE 4  Grounding
+        Used when: moving from video section to UI section
+        Duration: 600ms
+        Method: video desaturates + scales 5%
+                new bg colour fades in as overlay
+                UI slides up beneath
+```
+
+---
+
+## 7. VIDEO ASSETS NEEDED
+
+```
+VIDEO 1  → Opening intro (Section 1 bg)
+           White → Kailash → Shiva → Third eye →
+           Tear → Tree → Bead → Hands
+           Duration: 10 sec | Loop: NO — plays once
+
+VIDEO 2  → Section 5: Milind Soman
+           Athletic silhouette, ocean/mountain dawn
+           Duration: 8–12 sec | Loop: YES
+
+VIDEO 3  → Section 10: 25 Years Legacy
+           Ancient banyan tree at sunrise, camera through canopy
+           Duration: 8–12 sec | Loop: YES
+
+VIDEO 4  → Section 13: Vedic Energization
+           Sacred havan kund burning, Brahmin hands, smoke
+           Duration: 8–12 sec | Loop: YES
+
+VIDEO 5  → Section 15: Rarest Collection
+           Single bead, dramatic darkness, spotlight, orbiting camera
+           Duration: 8–12 sec | Loop: YES
+
+VIDEO 6  → Section 24: Indra Mala
+           Shiva temple interior, Shivalingam + hundreds of diyas
+           Duration: 8–12 sec | Loop: YES
+
+VIDEO 7  → Section 26: Final CTA
+           Same Himalayas as intro, now at night
+           Full moon, meditating figure, Rudraksha mala
+           Duration: 8–12 sec | Loop: YES
+
+All videos →
+  Format:   9:16 vertical (mobile first)
+  Camera:   ARRI Alexa anamorphic
+  Grade:    Kodak Vision3 500T film emulation
+  Movement: Slow imperceptible push or pan — NEVER handheld
+  Tool:     Midjourney v6 → Runway Gen-3 or Kling 1.6
+```
+
+---
+
+## 8. STATIC BG IMAGES NEEDED (AI Generated)
+
+```
+IMAGE 1  → Section 2: Stone temple pathway at dawn
+           Oil diyas lining both sides
+           Warm gold light at destination
+
+IMAGE 2  → Section 3: Warm consultation room interior
+           Wooden table, window light, safe feeling
+
+IMAGE 3  → Section 7: Three generations hands
+           Passing Rudraksha, warm firelight
+
+IMAGE 4  → Section 12: Copper yantra plate
+           Rudraksha bead at center, sacred geometry
+
+IMAGE 5  → Section 17: Overhead puja setup flat lay
+           Brass thali, diya, mala at center
+           Warm candlelight only
+
+IMAGE 6  → Section 21: Morning window
+           Sheer curtain, Rudraksha on latch
+           Clean light, nothing in shadow
+```
+
+---
+
+## 9. REAL CONTENT NEEDED FROM CLIENT
+
+```
+PHOTOS
+  → Office interior (3 shots minimum) — Section 9
+  → Team photos (lab, brahmins, artisans, experts) — Section 8
+  → Exhibition hall photos — Section 16
+  → Milind Soman licensed image — Section 5
+
+VIDEOS
+  → Milind Soman clip — Section 5
+  → Actual energization ceremony footage — Section 13
+  → Exhibition highlight reel — Section 16
+  → Testimonial videos (minimum 4) — Section 4
+
+COPY
+  → Exhibition city list + upcoming dates — Section 16
+  → Book titles, cover images, editions — Section 19
+  → Celebrity/influencer names (real, licensed) — Section 25
+  → Actual puja names and full descriptions — Section 17
+  → Milind Soman exact quote (licensed) — Section 5
+
+DATA
+  → Real Google review count
+  → Real social media follower counts
+  → Accurate Rudraksha recommendations per journey type
+  → Milestone year dates (1999, 2004, etc.) confirmed
+```
+
+---
+
+## 10. BUILD STATUS
+
+```
+✅ DONE
+  → HTML structure (all 26 sections)
+  → Design tokens (colours, typography, spacing)
+  → Top nav + bottom nav
+  → Scroll reveal (IntersectionObserver)
+  → Animated scroll background transitions
+  → Knowledge center tab switching (JS)
+  → Bottom nav active state tracking
+  → All section copy and layout
+  → Trust strip, promise cards, stats
+  → Rare collection cards
+  → Sacred packaging section
+  → Fight against fakes section
+
+🔲 NOT STARTED
+  → Opening video sequence (Shiva/Kailash)
+  → 6 background loop videos (Sections 5,10,13,15,24,26)
+  → 6 static background images (AI generated)
+  → Real photography from client (office, team, exhibitions)
+  → Real book cover images
+  → Scroll-jacking transition system (Types 1–4)
+  → Journey card tap-to-expand interaction
+  → Video player integration (Section 4 testimonials)
+  → Interactive exhibition map
+  → Desktop layout (not yet designed)
+```
+
+---
+
+## 11. WHAT WE HAVE NOT DISCUSSED YET
+
+```
+→ Desktop layout (only mobile designed so far)
+→ Internal pages (Collections, Guidance, etc)
+→ Product pages (individual Rudraksha)
+→ Checkout and cart
+→ Search functionality
+→ WhatsApp integration (beyond CTA button)
+→ Personalization quiz flow
+→ Exhibition finder / map integration
+→ Knowledge center inner pages
+→ Book purchase/download flow
+→ Puja booking flow
+→ Account and order management
+→ Loading states and skeleton screens
+→ Error states
+→ Accessibility
+→ SEO structure
+→ Analytics events
+→ Performance budget
+  (7 videos + 7 images on one page is heavy)
+→ Progressive loading strategy for videos
+→ Fallback for slow connections
+```
+
+---
+
+*Build document maintained alongside `index.html` in the project root.*
+*Always update this document when decisions change.*

@@ -1,0 +1,84 @@
+# Implementation Plan: Advanced Library & Repository Integration
+
+This plan outlines the architectural strategy for integrating high-performance scroll video scripting, Vedic birth chart calculations, interactive sacred geometry, and 3D web graphics into the Rudralife landing page.
+
+---
+
+## User Review Required
+
+> [!IMPORTANT]
+> **3D Assets & Performance Budget**: Loading 3D models (`.glb`/`.gltf` files) and compiling Three.js shaders will increase the initial bundle size. We will use React dynamic imports (`React.lazy`) and Suspense fallbacks to load the 3D viewer only when the user scrolls to the Rarest Collection section.
+
+> [!WARNING]
+> **AstroWizard API Dependencies**: The Vedic birth-chart calculator requires geographic coordinates (latitude and longitude) to calculate precise ascendants. We will add a lightweight location-search input using a free geocoding API or a small offline coordinate list for major cities to prevent API rate-limiting issues.
+
+---
+
+## Open Questions
+- **3D scan files**: Does the client have pre-existing `.glb` models of the Rudraksha beads (e.g., standard Nepal beads or Siddha Mala), or should we start with a procedural 3D model styled in wood textures?
+- **Astronomy data location**: Should ephemeris calculations be run entirely client-side (using `Hora Prakash` WASM), or should we set up a serverless handler to prevent loading the ephemeris data files into the client browser?
+
+---
+
+## Proposed Changes
+
+We will introduce these integrations across five core layers:
+
+```mermaid
+graph TD
+    A[App.jsx] --> B[ReactLenis Smooth Scroll Wrapper]
+    A --> C[AstroWizard - vedic-calc integration]
+    A --> D[BackgroundLayers - ScrollyVideo Canvas]
+    A --> E[ThreeBeadViewer - React Three Fiber]
+    A --> F[SacredGeometry Canvas]
+```
+
+### 1. Core Wrapper — Smooth Scrolling
+#### [MODIFY] [App.jsx](file:///c:/Users/VIRENDRA%20CHOUHAN/Desktop/00/Rudra%20life/src/App.jsx)
+- Wrap the main application container in `<ReactLenis root>` from `lenis/react`.
+- Configure Lenis easing parameters (`duration: 1.2`, `lerp: 0.1`, `smoothWheel: true`) to normalize scrolling gestures and optimize frame rates.
+
+---
+
+### 2. Video Scrubbing Upgrades
+#### [MODIFY] [BackgroundLayers.jsx](file:///c:/Users/VIRENDRA%20CHOUHAN/Desktop/00/Rudra%20life/src/components/BackgroundLayers.jsx)
+- Replace raw `<video>` element time-scrubbing logic with `ScrollyVideo` canvas player.
+- Set up a scroll container reference to trigger canvas redrawing only on frame changes, reducing GPU overhead.
+
+---
+
+### 3. AstroWizard — Real Birth Chart Generator
+#### [MODIFY] [AstroWizard.jsx](file:///c:/Users/VIRENDRA%20CHOUHAN/Desktop/00/Rudra%20life/src/components/Interactive/AstroWizard.jsx)
+- Import `vedic-calc` or write an SVG-generator that parses birth coordinates and longitudes.
+- **Step 4 (Final Chart)**: Replace the static layout with a dynamically drawn North Indian style Kundli diagram showing the user's ascendant house (Lagna) and planetary transits.
+
+---
+
+### 4. Interactive 3D Bead Viewer
+#### [NEW] [ThreeBeadViewer.jsx](file:///c:/Users/VIRENDRA%20CHOUHAN/Desktop/00/Rudra%20life/src/components/Interactive/ThreeBeadViewer.jsx)
+- Create a reusable `@react-three/fiber` canvas component.
+- Import `useGLTF` and `OrbitControls` from `@react-three/drei`.
+- Add a wood material shader with soft specular highlights to emulate the natural organic shine of an oiled Rudraksha bead.
+- Mount this interactive viewer inside Section 15 (Rarest Collection).
+
+---
+
+### 5. Sacred Geometry Canvas (Vedic Energization)
+#### [NEW] [SacredGeometryCanvas.jsx](file:///c:/Users/VIRENDRA%20CHOUHAN/Desktop/00/Rudra%20life/src/components/Interactive/SacredGeometryCanvas.jsx)
+- Create a HTML5 Canvas component that generates a gold-threaded Sri Yantra.
+- Implement mathematical parametric equations to trace coordinate paths using trigonometric loops:
+  \[x = cx + r \cdot \cos(\theta), \quad y = cy + r \cdot \sin(\theta)\]
+- Integrate mouse-proximity lighting so that the lines glow brighter as the cursor moves over them, placed in Section 13 (Vedic Energization).
+
+---
+
+## Verification Plan
+
+### Automated Tests
+- Run `npm run build` to verify there are no compilation errors with Framer Motion, Lenis, or React Three Fiber.
+- Monitor console for any WebGL context loss or loader errors.
+
+### Manual Verification
+- Test scroll smoothness on mobile and desktop viewports, checking that video scrubbing transitions smoothly without lag.
+- Input real birth details into the AstroWizard and confirm that the drawn Kundli chart shifts houses based on time adjustments.
+- Click and drag the 3D bead to confirm rotation control operates without breaking scroll.

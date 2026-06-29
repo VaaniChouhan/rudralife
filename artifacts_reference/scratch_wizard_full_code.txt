@@ -1,0 +1,200 @@
+=== PART 1: HTML BLOCK ===
+      <div class="map-pulse-dot" style="top: 80%; left: 88%;" title="Sydney"></div>
+    </div>"""
+content = content.replace(globe_search, globe_replace)
+
+# 4. Guided Discovery (Section 4): Inject Stepper, Matcher and Private Access Card
+btn_rec_search = """    <div style="text-align:center;margin-top:22px" class="reveal">
+      <a href="#" class="btn-outline">Get Personalised Recommendation</a>
+    </div>"""
+
+btn_rec_replace = """    <!-- Astro Wizard launcher -->
+    <div style="text-align:center;margin-top:22px" class="reveal">
+      <button class="btn-gold" onclick="toggleAstroWizard()">Get Personalised Astrological Recommendation →</button>
+    </div>
+
+    <!-- Astro Wizard -->
+    <div id="astroWizard" class="astro-wizard-card reveal" style="display: none; margin-bottom: 24px;">
+      <h3 class="display" style="font-size: 22px; color: var(--gold); text-align: center; margin-bottom: 16px;">Svaras Astrological Matcher</h3>
+      
+      <!-- Step 1: Intention -->
+      <div id="step-1" class="wizard-step active">
+        <p style="font-size: 13px; text-align: center; margin-bottom: 16px; color: rgba(255,253,248,0.7);">Choose your primary life intention:</p>
+        <div class="step-grid">
+          <div class="step-choice" onclick="selectWizardIntention('peace', this)">
+            <span style="font-size: 24px; display: block;">🧘</span>
+            <span style="font-size: 11px; font-weight: 600; color: var(--white);">Peace &amp; Calm</span>
+          </div>
+          <div class="step-choice" onclick="selectWizardIntention('career', this)">
+            <span style="font-size: 24px; display: block;">🚀</span>
+            <span style="font-size: 11px; font-weight: 600; color: var(--white);">Career Success</span>
+          </div>
+          <div class="step-choice" onclick="selectWizardIntention('health', this)">
+            <span style="font-size: 24px; display: block;">🌿</span>
+            <span style="font-size: 11px; font-weight: 600; color: var(--white);">Health &amp; Vigor</span>
+          </div>
+          <div class="step-choice" onclick="selectWizardIntention('protection', this)">
+            <span style="font-size: 24px; display: block;">🛡️</span>
+            <span style="font-size: 11px; font-weight: 600; color: var(--white);">Protection</span>
+          </div>
+        </div>
+        <button class="btn-gold" style="width: 100%; justify-content: center;" onclick="goToWizardStep(2)">Continue →</button>
+      </div>
+
+      <!-- Step 2: Birth Info -->
+      <div id="step-2" class="wizard-step">
+        <p style="font-size: 13px; text-align: center; margin-bottom: 16px; color: rgba(255,253,248,0.7);">Enter birth coordinates for Kundali mapping:</p>
+        <input type="text" id="astroName" placeholder="Your Name" class="wizard-input">
+        <input type="date" id="astroDob" class="wizard-input">
+        <input type="time" id="astroTob" class="wizard-input">
+        <input type="text" id="astroPob" placeholder="Place of Birth (City)" class="wizard-input">
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <button class="btn-outline-white" style="flex: 1; justify-content: center; padding: 10px 0; border-radius: 30px;" onclick="goToWizardStep(1)">Back</button>
+          <button class="btn-gold" style="flex: 2; justify-content: center; padding: 10px 0; border-radius: 30px;" onclick="runAstrologicalMapping()">Align Profile →</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Loading -->
+      <div id="step-3" class="wizard-step" style="text-align:center;">
+        <p style="font-size: 13px; text-align: center; margin-top: 10px; color: var(--gold);" id="loaderStatus">Aligning birth coordinates...</p>
+        <div class="yantra-loader">☸️</div>
+        <p style="font-size: 11.5px; text-align: center; color: var(--muted); font-style: italic;">Computing moon sign nakshatra &amp; planetary lords...</p>
+      </div>
+
+      <!-- Step 4: Recommendation Result -->
+      <div id="step-4" class="wizard-step">
+        <div style="border: 1px solid var(--gold); border-radius: 12px; padding: 16px; background: rgba(0,0,0,0.3); text-align: center; margin-bottom: 16px;">
+          <span class="eyebrow">Sacred Profile Generated</span>
+          <h4 id="resultRashi" class="display" style="font-size: 20px; color: var(--white); margin: 6px 0;">Moon Sign: Taurus (Vrishabha)</h4>
+          <p id="resultLagna" style="font-size: 11px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px;">Lagna: Cancer | Nakshatra: Rohini</p>
+          <div style="border-top: 1px solid rgba(196,154,60,0.2); padding-top: 12px; margin-top: 12px;">
+            <p style="font-size: 12.5px; color: rgba(255,253,248,0.85); line-height: 1.5;" id="resultText">Your chart indicates a highly active planetary phase. We recommend the **Siddha Mala** or a custom combination of **7 Mukhi and Gauri Shankar** to align energies.</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <a href="https://wa.me/919867291461" target="_blank" class="btn-wa" style="justify-content: center;">💬 Speak to Astrologer (WhatsApp)</a>
+          <button class="btn-outline-white" style="justify-content: center; border-radius: 30px;" onclick="resetAstroWizard()">Reset Form</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5-stage progression stepper -->
+    <div class="stepper-container reveal">
+      <span class="eyebrow" style="margin-bottom: 12px; display:block;">Rudraksha Learning Path</span>
+      <div class="stepper-line">
+        <div class="step-dot active" onclick="setActiveStepper(1)">1</div>
+        <div class="step-dot" onclick="setActiveStepper(2)">2</div>
+        <div class="step-dot" onclick="setActiveStepper(3)">3</div>
+        <div class="step-dot" onclick="setActiveStepper(4)">4</div>
+        <div class="step-dot" onclick="setActiveStepper(5)">5</div>
+      </div>
+      <div class="stepper-details-box" id="stepperDetails">
+        <h4 id="stepperTitle" class="display" style="font-size: 16px; color: var(--white); margin-bottom: 4px;">Level 1: Beginner</h4>
+
+=== PART 2: JS BLOCK ===
+<div class="zone-label" id="zoneLabel">FEEL</div>
+
+</body>"""
+
+content = content.replace(closing_body_search, closing_body_replace)
+
+# 10. JS Logic injection in <script> tags at bottom of index.html
+js_logic = """
+/* ── Interactive Kundali Wizard ── */
+function toggleAstroWizard() {
+  const wizard = document.getElementById('astroWizard');
+  if (wizard.style.display === 'none') {
+    wizard.style.display = 'block';
+    wizard.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    wizard.style.display = 'none';
+  }
+}
+
+let wizardIntention = '';
+function selectWizardIntention(intention, elem) {
+  wizardIntention = intention;
+  document.querySelectorAll('.step-choice').forEach(el => el.classList.remove('selected'));
+  elem.classList.add('selected');
+}
+
+function goToWizardStep(stepNum) {
+  document.querySelectorAll('.wizard-step').forEach(step => step.classList.remove('active'));
+  document.getElementById(`step-${stepNum}`).classList.add('active');
+}
+
+function runAstrologicalMapping() {
+  const name = document.getElementById('astroName').value || 'Seeker';
+  const dob = document.getElementById('astroDob').value;
+  const tob = document.getElementById('astroTob').value;
+  const pob = document.getElementById('astroPob').value;
+  
+  if (!dob || !tob || !pob) {
+    alert('Please enter all birth details.');
+    return;
+  }
+  
+  goToWizardStep(3);
+  
+  const statuses = [
+    'Aligning birth coordinates...',
+    'Calculating Rashi Lagna...',
+    'Analyzing active planetary Dashas...'
+  ];
+  
+  let i = 0;
+  const interval = setInterval(() => {
+    i++;
+    if (i < statuses.length) {
+      document.getElementById('loaderStatus').innerText = statuses[i];
+    } else {
+      clearInterval(interval);
+      displayAstroResult(name, dob);
+    }
+  }, 1000);
+}
+
+function displayAstroResult(name, dob) {
+  const rashis = ['Vrishabha (Taurus)', 'Mesha (Aries)', 'Mithuna (Gemini)', 'Karka (Cancer)', 'Simha (Leo)', 'Kanya (Virgo)'];
+  const lagnas = ['Cancer', 'Leo', 'Taurus', 'Aries', 'Virgo'];
+  const nakshatras = ['Rohini', 'Ashwini', 'Ardra', 'Pushya', 'Chitra'];
+  
+  // Deterministic sign based on birth day
+  const day = new Date(dob).getDate() || 1;
+  const rashi = rashis[day % rashis.length];
+  const lagna = lagnas[day % lagnas.length];
+  const nakshatra = nakshatras[day % nakshatras.length];
+  
+  document.getElementById('resultRashi').innerText = `Moon Sign: ${rashi}`;
+  document.getElementById('resultLagna').innerText = `Lagna: ${lagna} | Nakshatra: ${nakshatra}`;
+  
+  let recText = '';
+  if (wizardIntention === 'peace') {
+    recText = `Dear ${name}, your Rohini Nakshatra period currently experiences high sensory stimuli. We recommend a **5 Mukhi & 9 Mukhi combination** to bring immense peace, emotional calm, and protection against everyday stress.`;
+  } else if (wizardIntention === 'career') {
+    recText = `Dear ${name}, based on your ${lagna} lagna alignment, Saturn is transitioning into a powerful house. We recommend the flagship **Siddha Mala** or a **7 Mukhi & 14 Mukhi combination** to maximize leadership, professional gains, and victory over challenges.`;
+  } else if (wizardIntention === 'health') {
+    recText = `Dear ${name}, your planetary profile points to an active energetic cleanse phase. We recommend a **3 Mukhi & 11 Mukhi combination** for elevated physical vitality, protection, and aura enhancement.`;
+  } else {
+    recText = `Dear ${name}, to safeguard your planetary matrix against affliction, we recommend the **8 Mukhi & 9 Mukhi combinations** (Rahu-Ketu balance) to shield you from negative influences and dosha cycles.`;
+  }
+  
+  document.getElementById('resultText').innerText = recText;
+  goToWizardStep(4);
+}
+
+function resetAstroWizard() {
+  document.getElementById('astroName').value = '';
+  document.getElementById('astroDob').value = '';
+  document.getElementById('astroTob').value = '';
+  document.getElementById('astroPob').value = '';
+  document.querySelectorAll('.step-choice').forEach(el => el.classList.remove('selected'));
+  goToWizardStep(1);
+}
+
+/* ── Stepper Progression Path ── */
+const stepperData = {
+  1: {
+    title: "Level 1: Beginner",
+    desc: "Build a strong foundation. Focus on purification and daily alignment. Recommended: 5 Mukhi, 6 Mukhi, or basic Rudraksha bracelets."
+  },

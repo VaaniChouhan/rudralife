@@ -1,0 +1,9 @@
+L300: .xray-slider-container {
+L312: .xray-slider-container input[type="range"] {
+L351: .xray-control-input::-webkit-slider-thumb {
+L607: # 6. Section 9 (RRTL Lab): Inject X-Ray comparison reveal slider
+L614:     <!-- X-Ray Comparison Slider -->
+L615:     <div class="xray-slider-container reveal">
+L645:       <input type="range" min="0" max="100" value="50" class="xray-control-input" id="xraySliderRange" oninput="updateXrayReveal(this.value)">
+L647:     <p style="font-size: 11px; text-align: center; color: var(--muted); margin-bottom: 20px;">Drag the slider to perform a digital X-Ray scan of the bead's internal structure.</p>"""
+L910: /* ── X-Ray Comparison Slider ── */

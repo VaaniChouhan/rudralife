@@ -1,0 +1,184 @@
+# Rudralife UI/UX Full Audit
+*Senior Product Designer Review — Fix-One-At-A-Time Plan*
+
+---
+
+## The Core Problem (Root Cause)
+
+The site is built **component-first, not design-system-first**. Every section has been coded independently with ad-hoc styles, inline overrides, and inconsistent spacing. There is no single visual language tying the 26 sections together. It reads like 26 different designers worked on it.
+
+---
+
+## CRITICAL ISSUES — Fix These First
+
+### ❶ TYPOGRAPHY SYSTEM IS BROKEN
+**What's wrong:**
+- Hero h1 is `Cormorant Garamond` but body text is system sans. No intermediate display size exists.
+- Section h2 headings vary between ~34px and ~52px with no consistent scale applied
+- Paragraph line-height is inconsistent section to section (1.5, 1.65, 1.7 all used randomly)
+- The eyebrow label `——` looks mechanical/clunky — it is too long and the dash style is wrong
+- `.display` class isn't used consistently — some sections use `h2.display`, some use bare `h2`
+- Cormorant Garamond is only loading for headings — body needs a proper companion font
+
+**Fix:**
+- Establish ONE type scale used everywhere: `eyebrow → h2 → lead → body → caption`
+- Eyebrow: 10px, 0.2em spacing, uppercase, gold, with a 16px `—` prefix (single em-dash, not two hyphens)
+- h2: `clamp(32px, 8vw, 56px)` Cormorant Garamond 400
+- Lead (first paragraph): 17px, opacity 0.8, max-width 52ch
+- Body: 15px, 1.72 line-height, opacity 0.72
+- Use Inter or DM Sans for body (already loaded via Google Fonts? Check)
+
+---
+
+### ❷ SPACING IS INCONSISTENT — SECTIONS HAVE NO RHYTHM
+**What's wrong:**
+- Some sections have `padding: 60px 24px`, others `padding: 96px 24px`, others inline px values all over
+- The gap between the eyebrow and h2 varies per section
+- Cards inside sections have random `margin-top` values
+- Bottom of sections run directly into the next — no visual breathing room between dark↔light transitions
+
+**Fix:**
+- Every section: `padding: clamp(64px, 12vw, 112px) clamp(20px, 5vw, 32px)`
+- `.sh` (section header): `margin-bottom: clamp(32px, 6vw, 56px)`
+- Gap eyebrow → h2: `8px` fixed
+- Gap h2 → lead paragraph: `16px` fixed
+
+---
+
+### ❸ SECTION BACKGROUNDS — DARK/LIGHT CONTRAST IS KILLING READABILITY
+**What's wrong:**
+- Dark sections: text is `rgba(255,253,248,0.58)` on a near-black background — **too dim**
+- Light sections (linen/parch): text has no contrast system — headings and body look the same weight
+- The fixed background layers at `opacity: 0.48` are **too strong** for image BGs — text becomes unreadable
+- Between dark and light sections there are harsh jumps with no gradient transition
+
+**Fix:**
+- Dark sections body text: `rgba(255,253,248,0.72)` minimum
+- Light sections h2: `#1A0F04` (near-black teak), body: `rgba(26,18,8,0.65)`
+- Image-based BG layers: reduce to `opacity: 0.35` and add `linear-gradient(to bottom, rgba(13,10,6,0.55) 0%, rgba(13,10,6,0.3) 50%, rgba(13,10,6,0.6) 100%)` overlay
+
+---
+
+### ❹ NAVIGATION — HOLLOW AND GENERIC
+**What's wrong:**
+- Nav icons are outlined circles/carts that look like placeholder icons
+- "CONSULT AN EXPERT" CTA button has wrong border-radius on desktop (too pill-shaped for a nav)
+- Logo is too small — the Rudralife brand mark barely reads at 34px height
+- Nav has no active scroll indicator showing which section you're in (the bottom nav does this, but desktop nav doesn't)
+- Bottom nav icon labels (HOME, GUIDANCE, etc.) are in ALL CAPS which looks aggressive
+
+**Fix:**
+- Logo: increase to `42px` height
+- Nav CTA: `border-radius: 8px` (not pill) for a more premium, structured feel
+- Bottom nav labels: Title Case (`Home`, `Guidance`, etc.)
+
+---
+
+### ❺ CARDS ARE INCONSISTENT IN SIZE, PADDING & CORNER RADIUS
+**What's wrong:**
+- Journey cards (jcards) have `border-radius: 16px`
+- Story cards have `border-radius: 16px` but different inner padding
+- Rare cards have `border-radius: 14px`
+- Mala cards have `border-radius: 12px`
+- Ritual items have `border-radius: 10px`
+- Every card has a different value — there is no design token for radii
+
+**Fix:** Define 3 radius tokens:
+- `--radius-sm: 10px` (small elements, chips)
+- `--radius-md: 14px` (cards, inputs)
+- `--radius-lg: 20px` (large feature cards)
+Apply consistently across all cards.
+
+---
+
+### ❻ COLOR USAGE IS SCATTERED
+**What's wrong:**
+- Gold appears as: `#C49A3C`, `#E2C47A`, `rgba(196,154,60,0.X)` — three representations
+- Some eyebrows use `var(--gold)`, some use `var(--teak)` (brown), with no rule for when to use which
+- Story tags use teal/green color (`#2D6A6A` visible in markup) — completely off brand
+- The "EXPLORE →" links on journey cards are in gold but "PRIVATE ACCESS →" is a different lighter gold
+
+**Fix:**
+- All eyebrows: always `var(--gold)` on dark sections, `var(--teak)` on light sections
+- Story tags: remove teal, use `rgba(196,154,60,0.15)` background with gold text
+- All "→" links: one style only — `var(--gold-lt)`, `font-size: 11px`, `letter-spacing: 0.1em`, `text-transform: uppercase`
+
+---
+
+## HIGH PRIORITY ISSUES
+
+### ❼ HERO SECTION — No Bead, No Identity
+- The floating bead orb (`div.orb`) is NOT showing on screen — it exists in DOM but is hidden behind the video or at wrong z-index
+- "RUDRALIFE — EST. 1999" eyebrow renders in ALL CAPS which is correct but the dash is a plain hyphen, not an em-dash (`—`)
+- Trust strip values (ACE, RRTL, 100%, 7-Day) are tiny at 8.5px label — illegible
+
+**Fix:** Show the orb, use `—` em-dash in eyebrow, increase trust strip label to `9.5px`
+
+---
+
+### ❽ SECTION 2 (GUIDED JOURNEYS) — AstroWizard is buried
+- The `AstroWizard` birth-chart wizard component appears **after** the journey cards and stepper — users scroll past it
+- The journey cards (Peace, Protection, Growth, Guidance, Rare) need icons that are **thematic** — the current SVG paths are generic Material Design icons
+- The "GET PERSONALISED ASTROLOGICAL RECOMMENDATION" button text is too long — wraps on mobile
+
+---
+
+### ❾ SECTION 4 (STORIES) — Story cards have wrong icons
+- Each story card shows a generic silhouette/briefcase/person SVG — these look like stock icons
+- The cards should show a quote icon `"` or a person initial, not a generic SVG
+
+---
+
+### ❿ SECTION 5 (MILIND SOMAN) — Works but quote styling needs polish
+- The quote text uses plain `" "` typographic quotes but should use proper CSS `::before`/`::after` large opening quote marks
+- The "Siddha / MALA WEARER" chip overlapping the photo is `glassmorphic` but has wrong font weight
+
+---
+
+## MEDIUM PRIORITY
+
+### ⓫ SECTION 8 (HEART BEHIND RUDRALIFE) — Empty space above section
+- There is a large blank area (~200px) above "OUR PEOPLE" eyebrow — likely a padding issue from a previous section's bottom padding bleeding in
+
+### ⓬ SECTION 10 (25 YEARS LEGACY) — Timeline is too sparse  
+- The timeline (1999, 2004...) has good structure but the year numbers use `var(--gold)` which disappears on the dark bg-image
+- Year labels need a small `background: rgba(13,10,6,0.6)` pill behind them
+
+### ⓭ SECTION 11 (RRTL LAB) — X-Ray slider border is barely visible
+- The `XRaySlider` handle is not rendering with the gold gradient we defined — it still shows the old style
+
+### ⓮ WHATSAPP BUTTON — Bright green on dark gold page
+- The WhatsApp FAB is bright green (`#25D366`) — it **clashes** with the entire dark-gold palette
+- Should be gold-tinted or at minimum use a darker green with a gold ring
+
+---
+
+## LOW PRIORITY (Polish after above are fixed)
+
+- Footer: needs visual hierarchy (logo top, links below, copyright bottom)
+- Section 16 (Exhibitions): completely empty — just a title with no content structure
+- Section 18 (Knowledge Center): podcast/article cards need real card layouts
+- Section 20 (Fight Against Fakes): comparison table is unstyled
+
+---
+
+## EXECUTION PLAN — One At A Time
+
+> **Rule:** Fix → Screenshot → Verify → Next. No batch changes.
+
+| Order | Fix | Files |
+|-------|-----|-------|
+| **1** | Typography system — establish ONE scale, fix ALL headings | `index.css` |
+| **2** | Spacing rhythm — section padding, `.sh` margins, card gaps | `index.css` |
+| **3** | Color consistency — eyebrows, tags, link arrows, gold tokens | `index.css`, `App.jsx` |
+| **4** | Card radius tokens — unify all 5 card types | `index.css` |
+| **5** | Dark section text contrast — raise opacity values | `index.css` |
+| **6** | Background overlay — reduce opacity + add gradient overlay | `index.css`, `BackgroundLayers.jsx` |
+| **7** | Navigation — logo size, CTA style, bottom nav labels | `Header.jsx`, `index.css`, `App.jsx` |
+| **8** | WhatsApp FAB — change to gold-themed style | `App.jsx`, `index.css` |
+| **9** | Hero orb — fix z-index so bead shows | `index.css` |
+| **10** | Story card icons — replace with quote marks | `App.jsx` |
+
+---
+
+## Starting Now: Fix #1 — Typography System

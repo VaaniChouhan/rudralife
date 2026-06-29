@@ -1,0 +1,20 @@
+# React Migration Task List
+
+- `[ ]` Setup & Assets Relocation
+  - `[ ]` Copy logo and video to `/public` directory
+  - `[ ]` Configure global variables and rules in `src/index.css`
+- `[ ]` Create Core Interactive Components
+  - `[ ]` Create `src/components/BackgroundLayers.jsx`
+  - `[ ]` Create `src/components/Interactive/AstroWizard.jsx`
+  - `[ ]` Create `src/components/Interactive/XRaySlider.jsx`
+  - `[ ]` Create `src/components/Interactive/AceProcess.jsx`
+- `[ ]` Create Layout Structure
+  - `[ ]` Create `src/components/Header.jsx`
+  - `[ ]` Create `src/components/Footer.jsx`
+- `[ ]` Assemble Homepage & Core Hooks
+  - `[ ]` Setup `IntersectionObserver` background cross-fading in `src/App.jsx`
+  - `[ ]` Setup video scroll timeline interpolation scrub loop in `src/App.jsx`
+  - `[ ]` Populate all 26 sections in layout structure inside `src/App.jsx`
+- `[ ]` Build & Verification
+  - `[ ]` Run `npm install` and verify config
+  - `[ ]` Run `npm run build` to verify zero compiler errors

@@ -1,0 +1,45 @@
+L121: .astro-wizard-card {
+L129: .wizard-step {
+L133: .wizard-step.active {
+L159: .wizard-input {
+L170: .wizard-input:focus {
+L470: btn_rec_search = """    <div style="text-align:center;margin-top:22px" class="reveal">
+L474: btn_rec_replace = """    <!-- Astro Wizard launcher -->
+L476:       <button class="btn-gold" onclick="toggleAstroWizard()">Get Personalised Astrological Recommendation →</button>
+L479:     <!-- Astro Wizard -->
+L480:     <div id="astroWizard" class="astro-wizard-card reveal" style="display: none; margin-bottom: 24px;">
+L484:       <div id="step-1" class="wizard-step active">
+L487:           <div class="step-choice" onclick="selectWizardIntention('peace', this)">
+L491:           <div class="step-choice" onclick="selectWizardIntention('career', this)">
+L495:           <div class="step-choice" onclick="selectWizardIntention('health', this)">
+L499:           <div class="step-choice" onclick="selectWizardIntention('protection', this)">
+L504:         <button class="btn-gold" style="width: 100%; justify-content: center;" onclick="goToWizardStep(2)">Continue →</button>
+L508:       <div id="step-2" class="wizard-step">
+L510:         <input type="text" id="astroName" placeholder="Your Name" class="wizard-input">
+L511:         <input type="date" id="astroDob" class="wizard-input">
+L512:         <input type="time" id="astroTob" class="wizard-input">
+L513:         <input type="text" id="astroPob" placeholder="Place of Birth (City)" class="wizard-input">
+L515:           <button class="btn-outline-white" style="flex: 1; justify-content: center; padding: 10px 0; border-radius: 30px;" onclick="goToWizardStep(1)">Back</button>
+L521:       <div id="step-3" class="wizard-step" style="text-align:center;">
+L528:       <div id="step-4" class="wizard-step">
+L539:           <button class="btn-outline-white" style="justify-content: center; border-radius: 30px;" onclick="resetAstroWizard()">Reset Form</button>
+L560: content = content.replace(btn_rec_search, btn_rec_replace)
+L758: /* ── Interactive Kundali Wizard ── */
+L759: function toggleAstroWizard() {
+L760:   const wizard = document.getElementById('astroWizard');
+L761:   if (wizard.style.display === 'none') {
+L762:     wizard.style.display = 'block';
+L763:     wizard.scrollIntoView({ behavior: 'smooth' });
+L765:     wizard.style.display = 'none';
+L769: let wizardIntention = '';
+L770: function selectWizardIntention(intention, elem) {
+L771:   wizardIntention = intention;
+L776: function goToWizardStep(stepNum) {
+L777:   document.querySelectorAll('.wizard-step').forEach(step => step.classList.remove('active'));
+L792:   goToWizardStep(3);
+L827:   if (wizardIntention === 'peace') {
+L829:   } else if (wizardIntention === 'career') {
+L831:   } else if (wizardIntention === 'health') {
+L838:   goToWizardStep(4);
+L841: function resetAstroWizard() {
+L847:   goToWizardStep(1);

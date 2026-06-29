@@ -1,0 +1,61 @@
+# Section Sequence Audit
+*Client Requirements vs. Current Implementation*
+
+Below is the strict mapping of the 26 client requirements sections against the actual JSX elements in the built code.
+
+---
+
+## Comparative Mapping Table
+
+| Client Requirements Section | Built ID | Built Heading / Title | Alignment Status |
+| :--- | :--- | :--- | :--- |
+| **1. HERO BANNER** | `s1` | A Sacred Companion For Your Life Journey. | **Aligned** (1st) |
+| **2. GUIDED JOURNEYS** | `s4` | How Would You Like To Begin? | **Aligned** (2nd) |
+| **3. FIRST TIME BUYING** | `s7` | New To Rudraksha? Start With Confidence. | **Aligned** (3rd) |
+| **4. STORIES OF TRANSFORMATION** | `s16` | Real Journeys. Real Transformations. | **Aligned** (4th) |
+| **5. MILIND SOMAN** | `s2` | A Journey That Began With A Siddha Mala. | **Aligned** (5th) |
+| **6. OUR CLIENTS** | `s3` | Trusted By Seekers Across The World. | **Aligned** (6th) |
+| **7. 3 GENERATIONS OF EXPERTISE** | `s5` | Three Generations. One Lifelong Commitment. | **Aligned** (7th) |
+| **8. HEART BEHIND RUDRALIFE** | `s15` | The People Behind Every Blessing. | **Aligned** (8th) |
+| **9. RUDRALIFE HEAD OFFICE** | `s18` | A Place Built On Faith And Trust. | **Aligned** (9th) |
+| **10. 25 YEARS OF LEGACY** | `s17` | 25 Years Of Serving Spiritual Seekers. | **Aligned** (10th) |
+| **11. RRTL LAB** | `s9` | Authenticity You Can Verify. | **Aligned** (11th) |
+| **12. ACE PROCESS** | `s8` | More Than Authentic. Carefully Energized. | **Aligned** (12th) |
+| **13. VEDIC ENERGIZATION** | `s10` | Prepared With Intention And Reverence. | **Aligned** (13th) |
+| **14. MALA MAKING MASTERY** | `s11` | Crafted To Be Worn For A Lifetime. | **Aligned** (14th) |
+| **15. RAREST COLLECTION** | `s12` | Among The World’s Most Extraordinary Rudraksha. | **Aligned** (15th) |
+| *Product Focus (Siddha Mala)* | `s-siddha-mala` | The World's Most Powerful Mala. | *Product Insertion* (16th) |
+| *Logistics (Unboxing Experience)* | `s13` | A Sacred Experience From Our Hands To Yours. | *Logistics Insertion* (17th) |
+| **16. WORLD’S LARGEST EXHIBITIONS** | `s19` | Experience Rudraksha In Person. | **Aligned** (18th) |
+| **17. RUDRAKSHA PUJAS** | `s14` | Your Journey Continues Beyond Ownership. | **Aligned** (19th) |
+| **18. KNOWLEDGE CENTER** | `s25` (Bottom) | Learn. Reflect. Grow. | **Replaced / Swapped** (20th) |
+| **19. BESTSELLING BOOKS** | `s25` (Top) | Go Deeper Into The World Of Rudraksha. | **Replaced / Swapped** (20th) |
+| **20. FIGHT AGAINST FAKES** | `s20` | Know The Difference. Protect Your Journey. | **Aligned** (21st) |
+| **21. OUR PROMISE & TRANSPARENCY** | `s23` | Guidance Without Hidden Conditions. | **Aligned** (22nd) |
+| **22. RUDRALIFE CARES** | `s21` | Spirituality Finds Meaning Through Service. | **Aligned** (23rd) |
+| **23. JOIN OUR VIBRANT COMMUNITY** | `s22` | You Are Not Walking This Path Alone. | **Aligned** (24th) |
+| *General Demographics Segment* | `s6` | Every Walk Of Life. One Sacred Thread. | *Demographics Insertion* (25th) |
+| **24. INDRA MALA (OPTIONAL)** | — | *Offered At The Feet Of Mahadev.* | **Missing (Optional)** |
+| **25. CELEBRITIES (OPTIONAL)** | — | *Chosen By Those Who Value Authenticity.* | **Missing (Optional)** |
+| **26. FINAL CTA** | `s24` | Begin Your Journey With Confidence. | **Aligned** (26th) |
+
+---
+
+## Discrepancies and Observations
+
+### 1. Swapped Order: Knowledge Center (18) and Bestselling Books (19)
+- **Client request**:
+  - Section 18: KNOWLEDGE CENTER ("Learn. Reflect. Grow.")
+  - Section 19: BESTSELLING BOOKS ("Go Deeper Into The World Of Rudraksha.")
+- **Current code**: Swapped and combined under a single section `s25`.
+  - Books are displayed first.
+  - Knowledge Center is displayed below the books.
+
+### 2. Missing Optional Sections
+- **24. INDRA MALA OFFERED TO LORD SHIVA (OPTIONAL)** is missing.
+- **25. CELEBRITIES & INFLUENCERS (OPTIONAL)** is missing.
+
+### 3. Insertions
+- **Siddha Mala Showcase** (`s-siddha-mala`) is inserted after Rarest Collection to build immediate high-ticket interest.
+- **The Unboxing Experience** (`s13`) is inserted before Exhibitions to build expectation of certified quality and premium unboxing.
+- **Every Walk of Life** (`s6`) is inserted before the Final CTA to show community categories (athletes, artists, etc.).

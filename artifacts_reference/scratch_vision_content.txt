@@ -1,0 +1,154 @@
+=== SECTION 6 (around line 462) ===
+══════════════════════════════════════════ */}
+<section className="linen" id="s6" data-bg="232,223,200">
+  <div className="inner">
+    <div className="sh reveal">
+      <span className="eyebrow" style={{color: 'var(--teak)'}}>Our Community</span>
+      <h2 className="display" style={{color: 'var(--black)'}}>Every Walk Of Life.<br />One Sacred Thread.</h2>
+      <p>Seekers, professionals, athletes, artists — Rudraksha has no boundaries.</p>
+    </div>
+    <div className="client-pills reveal">
+      <div className="cp"><span>🧘</span>Spiritual Seekers</div>
+      <div className="cp"><span>💼</span>Professionals</div>
+      <div className="cp"><span>👑</span>Leaders</div>
+      <div className="cp"><span>🏃</span>Athletes</div>
+      <div className="cp"><span>🎨</span>Artists</div>
+      <div className="cp"><span>🚀</span>Entrepreneurs</div>
+      <div className="cp"><span>👨‍👩‍👧‍👦</span>Families</div>
+    </div>
+    <div style={{textAlign: 'center'}} className="reveal">
+      <a href="#" className="btn-teak">View All Client Stories →</a>
+    </div>
+  </div>
+</section>
+
+
+{/* ══════════════════════════════════════════
+     S7 · FIRST TIME BUYING RUDRAKSHA
+══════════════════════════════════════════ */}
+<section className="light" id="s7" data-bg="250,246,238">
+  <div className="inner">
+    <div className="sh reveal">
+      <span className="eyebrow" style={{color: 'var(--teak)'}}>First Time Here?</span>
+      <h2 className="display" style={{color: 'var(--black)'}}>New To Rudraksha?<br />Start With Confidence.</h2>
+      <p>Guidance, exclusive benefits and expert support for your very first step.</p>
+    </div>
+    <div className="ftcard reveal">
+      <span className="gift">🎁</span>
+      <h3>Welcome Benefits</h3>
+      <ul className="blist">
+        <li>10% welcome benefit on your first purchase</li>
+        <li>Complimentary Puja Video performed in your name</li>
+        <li>Free 7 Mukhi Devi Lakshmi Bracelet on orders above ₹15,001</li>
+        <li>Dedicated expert guidance from selection to wearing</li>
+        <li>Care &amp; Maintenance guide included with every order</li>
+      </ul>
+      <a href="#s24" className="btn-gold" style={{width: '100%', justifyContent: 'center'}}>Speak With An Expert →</a>
+    </div>
+  </div>
+</section>
+
+
+{/* ══════════════════════════════════════════
+     S8 · ACE PROCESS
+══════════════════════════════════════════ */}
+<section className="dark" id="s8" data-bg="13,10,6">
+  <div className="inner">
+    <div className="sh reveal">
+      <span className="eyebrow">Our Method</span>
+      <h2 className="display">More Than Authentic.<br />Carefully Energized.</h2>
+      <p>Every Rudraksha passes through three layers of integrity before reaching you.</p>
+    </div>
+    
+    <AceProcess />
+
+    <div className="ace-flow reveal">
+      <div className="ace-step">
+        <div className="ace-icon">🔍</div>
+        <div>
+          <h4>Authentic Selection</h4>
+          <p>Visual, X-ray and dimensional lab testing in our RRTL — zero artificial treatment or modifications accepted.</p>
+        </div>
+
+
+=== SECTION 16 (around line 892) ===
+      </div>
+      <div className="tcard">
+        <span className="ti">🪡</span>
+        <h4>Mala Artisans</h4>
+        <p>Crafting each piece with devotion and skill</p>
+      </div>
+      <div className="tcard">
+        <span className="ti">📞</span>
+        <h4>Support Team</h4>
+        <p>Operations &amp; Care — Ensuring secure, insured shipping &amp; post-purchase assistance.</p>
+      </div>
+    </div>
+    <div style={{textAlign: 'center', marginTop: '8px'}} className="reveal">
+      <a href="#" className="btn-outline">Meet The Full Team →</a>
+    </div>
+  </div>
+</section>
+
+
+{/* ══════════════════════════════════════════
+     S16 · STORIES OF TRANSFORMATION
+══════════════════════════════════════════ */}
+<section className="light" id="s16" data-bg="250,246,238">
+  <div className="inner">
+    <div className="sh reveal">
+      <span className="eyebrow" style={{color: 'var(--teak)'}}>Real People</span>
+      <h2 className="display" style={{color: 'var(--black)'}}>Real Journeys.<br />Real Transformations.</h2>
+      <p>Discover how Rudraksha has quietly changed thousands of lives.</p>
+    </div>
+  </div>
+  <div className="stories-scroll reveal">
+    <div className="story-card">
+      <div className="story-img">🧘</div>
+      <div className="story-body">
+        <span className="story-tag">Peace &amp; Clarity</span>
+        <h4>"My anxiety reduced within weeks"</h4>
+        <p>Priya S., Mumbai — 5 Mukhi Rudraksha</p>
+      </div>
+    </div>
+    <div className="story-card">
+      <div className="story-img">💼</div>
+      <div className="story-body">
+        <span className="story-tag">Success &amp; Growth</span>
+        <h4>"The clarity I needed to make the leap"</h4>
+        <p>Rajiv M., Bangalore — Siddha Mala</p>
+      </div>
+    </div>
+    <div className="story-card">
+      <div className="story-img">🙏</div>
+      <div className="story-body">
+        <span className="story-tag">Spiritual Growth</span>
+        <h4>"My meditation deepened instantly"</h4>
+        <p>Anita K., Delhi — 14 Mukhi Rudraksha</p>
+      </div>
+    </div>
+    <div className="story-card">
+      <div className="story-img">❤️</div>
+      <div className="story-body">
+        <span className="story-tag">Health &amp; Healing</span>
+        <h4>"Doctors were surprised by my recovery"</h4>
+        <p>Suresh R., Chennai — 2 Mukhi Rudraksha</p>
+      </div>
+    </div>
+  </div>
+  <div style={{textAlign: 'center', padding: '0 20px', marginTop: '6px'}} className="reveal">
+    <a href="#" className="btn-teak">Watch Experiences &amp; Read More Stories →</a>
+  </div>
+</section>
+
+
+{/* ══════════════════════════════════════════
+     S17 · 25 YEARS OF TRUST
+══════════════════════════════════════════ */}
+<section className="dark" id="s17" data-bg="13,10,6">
+  <div className="inner">
+    <div className="sh reveal">
+      <span className="eyebrow">Est. 1999</span>
+      <h2 className="display">25 Years Of Serving<br />Spiritual Seekers.</h2>
+      <p>A journey shaped by trust, tradition and meaningful human impact.</p>
+    </div>
