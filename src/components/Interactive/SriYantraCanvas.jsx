@@ -140,9 +140,8 @@ export default function SriYantraCanvas({ size = 320 }) {
       if (glowRef.current <= 0) glowDirRef.current = 1;
 
       draw(phaseRef.current);
-      if (phaseRef.current < 1 || true) { // keep animating for breathing glow
-        frameRef.current = requestAnimationFrame(animate);
-      }
+      // keep animating forever for breathing glow
+      frameRef.current = requestAnimationFrame(animate);
     }
 
     frameRef.current = requestAnimationFrame(animate);

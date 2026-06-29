@@ -11,30 +11,6 @@ import { PeaceIcon, ShieldIcon, GrowthIcon, GuidanceIcon, RareIcon, GiftIcon } f
 import gsap from 'gsap';
 import Lenis from 'lenis';
 
-// Astrological Stepper Data
-const stepperData = {
-  1: {
-    title: "Level 1: Beginner",
-    desc: "Build a strong foundation. Focus on purification and daily alignment. Recommended: 5 Mukhi, 6 Mukhi, or basic Rudraksha bracelets."
-  },
-  2: {
-    title: "Level 2: Sadhaka",
-    desc: "For spiritual practitioners. Deepen meditation and dhyana. Recommended: 8 Mukhi, 9 Mukhi, or meditation beads."
-  },
-  3: {
-    title: "Level 3: Acharya",
-    desc: "Astrological balancing. Tailored beads for planetary lords. Recommended: custom Kundali combinations."
-  },
-  4: {
-    title: "Level 4: Siddha",
-    desc: "Advanced collectors. Powerful beads like 14 Mukhi to 21 Mukhi. Recommended: Siddha Mala."
-  },
-  5: {
-    title: "Level 5: Rishi",
-    desc: "Ultimate realization. Rare combinations. Recommended: Indra Mala or rare collector beads."
-  }
-};
-
 const layerMap = {
   's1': 'bg-video-hero',
   's2': 'bg-video-milind',
@@ -58,11 +34,8 @@ const layerMap = {
 };
 
 export default function App() {
-  const [activeStep, setActiveStep] = useState(1);
-  const [activeFaq, setActiveFaq] = useState(null);
-  const [activeTab, setActiveTab] = useState('blogs');
-  const [booksCategory, setBooksCategory] = useState('all');
   const [bottomNavTab, setBottomNavTab] = useState('home');
+  const [activeTab, setActiveTab] = useState('blogs');
 
   useEffect(() => {
     // 0. Initialize Lenis smooth scroll
@@ -176,7 +149,6 @@ export default function App() {
 
       // Update active bottom navigation tab based on scrolling offsets
       const scrollPos = window.scrollY + window.innerHeight * 0.45;
-      const s1Offset = document.getElementById('s1')?.offsetTop || 0;
       const s4Offset = document.getElementById('s4')?.offsetTop || 1000;
       const s8Offset = document.getElementById('s8')?.offsetTop || 3000;
       const s12Offset = document.getElementById('s12')?.offsetTop || 5000;
@@ -288,7 +260,7 @@ export default function App() {
         <p>Every journey is unique. Discover the path that resonates with you. Whether you seek deep inner peace, protection from negativity, spiritual elevation, or custom astrological consultation — we are here to walk with you.</p>
       </div>
       <div className="journey-grid reveal" style={{ marginTop: 0 }}>
-        <a href="#" className="jcard">
+        <a href="https://wa.me/919867291461?text=Hi%2C%20I%27m%20seeking%20peace%20through%20Rudraksha.%20Can%20you%20guide%20me%3F" target="_blank" rel="noopener noreferrer" className="jcard">
         <span className="jcard-icon"><PeaceIcon /></span>
         <h3>Seeking Peace</h3>
         <p>Find clarity and calm through the right Rudraksha</p>
@@ -1108,12 +1080,39 @@ export default function App() {
       <h3 className="display" style={{fontSize: 'clamp(22px,6vw,30px)'}}>Learn. Reflect. Grow.</h3>
       <p>Explore podcasts, articles and insights from decades of research.</p>
     </div>
-    <div className="ktabs reveal" role="tablist">
-      <button className="ktab active"  role="tab">Blogs</button>
-      <button className="ktab"  role="tab">Myths</button>
-      <button className="ktab"  role="tab">Care</button>
+    <div className="ktabs reveal" role="tablist" aria-label="Knowledge center">
+      <button
+        className={`ktab ${activeTab === 'blogs' ? 'active' : ''}`}
+        role="tab"
+        id="tab-blogs"
+        aria-selected={activeTab === 'blogs'}
+        aria-controls="k-blogs"
+        onClick={() => setActiveTab('blogs')}
+      >Blogs</button>
+      <button
+        className={`ktab ${activeTab === 'myths' ? 'active' : ''}`}
+        role="tab"
+        id="tab-myths"
+        aria-selected={activeTab === 'myths'}
+        aria-controls="k-myths"
+        onClick={() => setActiveTab('myths')}
+      >Myths</button>
+      <button
+        className={`ktab ${activeTab === 'care' ? 'active' : ''}`}
+        role="tab"
+        id="tab-care"
+        aria-selected={activeTab === 'care'}
+        aria-controls="k-care"
+        onClick={() => setActiveTab('care')}
+      >Care</button>
     </div>
-    <div className="kpanel active" id="k-blogs">
+    <div
+      className={`kpanel ${activeTab === 'blogs' ? 'active' : ''}`}
+      id="k-blogs"
+      role="tabpanel"
+      aria-labelledby="tab-blogs"
+      hidden={activeTab !== 'blogs'}
+    >
       <a href="#" className="kitem">
         <span className="kii"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" style={{display:'inline-block',verticalAlign:'middle'}}><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
         <div><h4>How to Choose Your First Rudraksha</h4><p>A beginner's guide to selecting the right bead</p></div>
@@ -1127,7 +1126,13 @@ export default function App() {
         <div><h4>Podcast: Sacred Science of Rudraksha</h4><p>45-min deep dive with Rudralife founders</p></div>
       </a>
     </div>
-    <div className="kpanel" id="k-myths">
+    <div
+      className={`kpanel ${activeTab === 'myths' ? 'active' : ''}`}
+      id="k-myths"
+      role="tabpanel"
+      aria-labelledby="tab-myths"
+      hidden={activeTab !== 'myths'}
+    >
       <a href="#" className="kitem">
         <span className="kii"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#E05555" strokeWidth="2.5" style={{display:'inline-block',verticalAlign:'middle'}}><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
         <div><h4>Can Women Wear Rudraksha?</h4><p>Debunking the myth — no scriptural restrictions</p></div>
@@ -1141,7 +1146,13 @@ export default function App() {
         <div><h4>Do Cheap Rudraksha Work The Same?</h4><p>The truth about formalin-treated beads</p></div>
       </a>
     </div>
-    <div className="kpanel" id="k-care">
+    <div
+      className={`kpanel ${activeTab === 'care' ? 'active' : ''}`}
+      id="k-care"
+      role="tabpanel"
+      aria-labelledby="tab-care"
+      hidden={activeTab !== 'care'}
+    >
       <a href="#" className="kitem">
         <span className="kii"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" style={{display:'inline-block',verticalAlign:'middle'}}><path d="M12 2.5C12 2.5 5 10 5 14a7 7 0 0 0 14 0c0-4-7-11.5-7-11.5z"/></svg></span>
         <div><h4>Monthly Oiling &amp; Cleaning Ritual</h4><p>Maintain with almond oil and clean water</p></div>

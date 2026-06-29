@@ -62,9 +62,6 @@ export default function BeadOrbitViewer({ mukhiCount = 1, label = "Ek Mukhi Kaju
       for (let i = 0; i < mukhi; i++) {
         const angle = (i / mukhi) * Math.PI * 2 + progress * 0.5;
         const x1 = cx + r * 0.85 * Math.cos(angle - Math.PI / 2);
-        const y1 = cy - r * 0.85;
-        const x2 = cx + r * 0.85 * Math.cos(angle - Math.PI / 2);
-        const y2 = cy + r * 0.85;
         ctx.beginPath();
         ctx.moveTo(cx + (x1 - cx) * 0.4, cy - r * 0.7);
         ctx.quadraticCurveTo(cx + Math.cos(angle) * r * 0.9, cy, cx + (x1 - cx) * 0.4, cy + r * 0.7);

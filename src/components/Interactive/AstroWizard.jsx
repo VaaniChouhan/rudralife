@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 // North Indian style Kundali Chart SVG component
-const KundaliChart = ({ rashiName, lagnaName, NakshatraName, intention }) => {
+const KundaliChart = (props) => {
+  const { intention } = props;
   const [hoveredHouse, setHoveredHouse] = useState(null);
 
   // House attributes and planetary placements for the dynamic infographic
