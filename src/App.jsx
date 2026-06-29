@@ -3,11 +3,18 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import BackgroundLayers from './components/BackgroundLayers';
 import AstroWizard from './components/Interactive/AstroWizard';
-import XRaySlider from './components/Interactive/XRaySlider';
+import ThreeLabScanner from './components/Interactive/ThreeLabScanner';
 import AceProcess from './components/Interactive/AceProcess';
-import SriYantraCanvas from './components/Interactive/SriYantraCanvas';
-import BeadOrbitViewer from './components/Interactive/BeadOrbitViewer';
-import { PeaceIcon, ShieldIcon, GrowthIcon, GuidanceIcon, RareIcon, GiftIcon } from './components/Interactive/FramerIcon';
+import ThreeSriYantra from './components/Interactive/ThreeSriYantra';
+import ThreeBeadViewer from './components/Interactive/ThreeBeadViewer';
+import ThreeHeroOrb from './components/Interactive/ThreeHeroOrb';
+import StepperInfographics from './components/Interactive/StepperInfographics';
+import WelcomeIllustration from './components/Interactive/WelcomeIllustration';
+import CommunityMap from './components/Interactive/CommunityMap';
+import { ScientistIcon, BrahminIcon, AdvisorIcon, ArtisanIcon, SupportIcon } from './components/Interactive/TeamIcons';
+import { MantraIcon, PujaIcon, PurificationIcon, HandlingIcon } from './components/Interactive/RitualIcons';
+import { GoldMalaIcon, SilverMalaIcon, ThreadMalaIcon, PureBeadMalaIcon, FullMalaIcon, CustomMalaIcon } from './components/Interactive/MalaIcons';
+import { PeaceIcon, ShieldIcon, GrowthIcon, GuidanceIcon, RareIcon } from './components/Interactive/JourneyCardIcons';
 import gsap from 'gsap';
 import Lenis from 'lenis';
 
@@ -223,8 +230,8 @@ export default function App() {
 ══════════════════════════════════════════ */}
 <section id="s1" data-bg="13,10,6">
   <div className="hero-scene">
-    <div className="orb">
-      <div className="orb-core">📿</div>
+    <div className="orb" style={{ border: 'none', background: 'transparent' }}>
+      <ThreeHeroOrb />
     </div>
   </div>
   
@@ -296,17 +303,7 @@ export default function App() {
 {/* 5-stage progression stepper */}
     <div className="stepper-container reveal">
       <span className="eyebrow" style={{marginBottom: '12px', display: 'block'}}>Rudraksha Learning Path</span>
-      <div className="stepper-line">
-        <div className="step-dot active" >1</div>
-        <div className="step-dot" >2</div>
-        <div className="step-dot" >3</div>
-        <div className="step-dot" >4</div>
-        <div className="step-dot" >5</div>
-      </div>
-      <div className="stepper-details-box" id="stepperDetails">
-        <h4 id="stepperTitle" className="display" style={{fontSize: '16px', color: 'var(--white)', marginBottom: '4px'}}>Level 1: Beginner</h4>
-        <p id="stepperDesc" style={{fontSize: '12.5px', color: 'rgba(255,253,248,0.6)', lineHeight: '1.5'}}>Build a strong foundation. Focus on purification and daily alignment. Recommended: 5 Mukhi, 6 Mukhi, or basic Rudraksha bracelets.</p>
-      </div>
+      <StepperInfographics />
     </div>
   </div>
 </section>
@@ -319,24 +316,18 @@ export default function App() {
 ══════════════════════════════════════════ */}
 <section className="light" id="s7" data-bg="250,246,238">
   <div className="inner">
-    <div className="desktop-2col">
-      <div className="sh reveal">
-        <span className="eyebrow" style={{color: 'var(--teak)'}}>First Time Here?</span>
-        <h2 className="display">New To Rudraksha?<br />Start With <em>Confidence.</em></h2>
-        <p style={{color: 'rgba(26,18,9,0.75)'}}>Guidance, exclusive benefits and expert support for your very first step. We welcome you to experience the transformative power of authentic Nepal Rudraksha with zero friction and absolute confidence.</p>
-      </div>
-      <div className="ftcard reveal" style={{ marginTop: 0 }}>
-        <span className="gift"><GiftIcon /></span>
-        <h3>Welcome Benefits</h3>
-        <ul className="blist">
-          <li>10% welcome benefit on your first purchase</li>
-          <li>Complimentary Puja Video performed in your name</li>
-          <li>Free 7 Mukhi Devi Lakshmi Bracelet on orders above ₹15,001</li>
-          <li>Dedicated expert guidance from selection to wearing</li>
-          <li>Care &amp; Maintenance guide included with every order</li>
-        </ul>
-        <a href="#s24" className="btn-gold" style={{width: '100%', justifyContent: 'center'}}>Speak With An Expert →</a>
-      </div>
+    <div className="sh reveal" style={{ textAlign: 'center', marginBottom: '32px' }}>
+      <span className="eyebrow" style={{color: 'var(--teak)'}}>First Time Here?</span>
+      <h2 className="display">New To Rudraksha?<br />Start With <em>Confidence.</em></h2>
+      <p style={{color: 'rgba(26,18,9,0.75)', maxWidth: '640px', margin: '12px auto 0'}}>Guidance, exclusive benefits and expert support for your very first step. We welcome you to experience the transformative power of authentic Nepal Rudraksha with zero friction and absolute confidence.</p>
+    </div>
+    
+    <div className="reveal">
+      <WelcomeIllustration />
+    </div>
+    
+    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '28px' }} className="reveal">
+      <a href="#s24" className="btn-gold">Speak With An Expert →</a>
     </div>
   </div>
 </section>
@@ -551,27 +542,27 @@ export default function App() {
     </div>
     <div className="team-grid reveal">
       <div className="tcard">
-        <span className="ti"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" style={{display:'inline-block',verticalAlign:'middle'}}><path d="M9 3l4 7H5l4-7zM6 21h12M12 10v11"/><path d="M17 21H7a1 1 0 0 1-.89-1.45l2-4h5.78l2 4A1 1 0 0 1 17 21z" opacity="0.3"/></svg></span>
+        <span className="ti"><ScientistIcon /></span>
         <h4>Lab Scientists</h4>
         <p>RRTL-certified testing on every single bead</p>
       </div>
       <div className="tcard">
-        <span className="ti"><svg viewBox="0 0 32 32" width="20" height="20" fill="currentColor" style={{display:'inline-block',verticalAlign:'middle'}}><text x="16" y="22" textAnchor="middle" fontSize="20" fontFamily="serif">ॐ</text></svg></span>
+        <span className="ti"><BrahminIcon /></span>
         <h4>Vedic Brahmins</h4>
         <p>Authentic energization rituals performed daily</p>
       </div>
       <div className="tcard">
-        <span className="ti"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" style={{display:'inline-block',verticalAlign:'middle'}}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="5" opacity="0.6"/><circle cx="12" cy="12" r="2" fill="currentColor"/></svg></span>
+        <span className="ti"><AdvisorIcon /></span>
         <h4>Spiritual Advisors</h4>
         <p>Guiding every seeker on their personal journey</p>
       </div>
       <div className="tcard">
-        <span className="ti"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" style={{display:'inline-block',verticalAlign:'middle'}}><path d="M3 12c0-4 9-10 9-10s9 6 9 10a9 9 0 0 1-18 0z"/><path d="M12 2v20M6 10c0 3 2.7 5 6 5s6-2 6-5" opacity="0.5"/></svg></span>
+        <span className="ti"><ArtisanIcon /></span>
         <h4>Mala Artisans</h4>
         <p>Crafting each piece with devotion and skill</p>
       </div>
       <div className="tcard">
-        <span className="ti"><svg className="svg-icon" viewBox="0 0 24 24" style={{width:'1.1em',height:'1.1em',display:'inline-block',verticalAlign:'middle',marginRight:'6px'}}><path fill="currentColor" d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></span>
+        <span className="ti"><SupportIcon /></span>
         <h4>Support Team</h4>
         <p>Operations &amp; Care — Ensuring secure, insured shipping &amp; post-purchase assistance.</p>
       </div>
@@ -668,7 +659,7 @@ export default function App() {
           <a href="#" className="btn-teak">Explore Our Testing Process →</a>
         </div>
       </div>
-      <XRaySlider />
+      <ThreeLabScanner />
     </div>
 
     <div className="lab-nums reveal">
@@ -769,28 +760,28 @@ export default function App() {
     </div>
     <div className="ritual-list reveal">
       <div className="ritual-item">
-        <span className="ri"><svg viewBox="0 0 32 32" width="20" height="20" fill="currentColor" style={{display:'inline-block',verticalAlign:'middle'}}><text x="16" y="22" textAnchor="middle" fontSize="20" fontFamily="serif">ॐ</text></svg></span>
+        <span className="ri"><MantraIcon /></span>
         <div>
           <h4>Mantra Energization</h4>
           <p>The specific Beej Mantra of each Mukhi is chanted 108 times by qualified Vedic Brahmins.</p>
         </div>
       </div>
       <div className="ritual-item">
-        <span className="ri"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" style={{display:'inline-block',verticalAlign:'middle'}}><ellipse cx="12" cy="20" rx="7" ry="2.5"/><path d="M12 17.5V10M9 10c0-1.5 1-3 3-5 2 2 3 3.5 3 5a3 3 0 0 1-6 0z"/><circle cx="12" cy="5" r="1" fill="currentColor"/></svg></span>
+        <span className="ri"><PujaIcon /></span>
         <div>
           <h4>Ritual Puja</h4>
           <p>Full Abhishek ceremony performed with Gangajal, kumkum, flowers and lit diyas.</p>
         </div>
       </div>
       <div className="ritual-item">
-        <span className="ri"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" style={{display:'inline-block',verticalAlign:'middle'}}><path d="M12 2.5C12 2.5 5 10 5 14a7 7 0 0 0 14 0c0-4-7-11.5-7-11.5z"/></svg></span>
+        <span className="ri"><PurificationIcon /></span>
         <div>
           <h4>Purification Process</h4>
           <p>Beads are bathed in Panchgavya and sandalwood paste to remove all accumulated energies.</p>
         </div>
       </div>
       <div className="ritual-item">
-        <span className="ri"><svg className="svg-icon" viewBox="0 0 24 24" style={{width:'1.1em',height:'1.1em',display:'inline-block',verticalAlign:'middle',marginRight:'6px'}}><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/><circle cx="12" cy="6" r="1.5" fill="currentColor"/><circle cx="12" cy="18" r="1.5" fill="currentColor"/><circle cx="6" cy="12" r="1.5" fill="currentColor"/><circle cx="18" cy="12" r="1.5" fill="currentColor"/></svg></span>
+        <span className="ri"><HandlingIcon /></span>
         <div>
           <h4>Sacred Handling Practices</h4>
           <p>Every bead is handled with consecrated hands only — never with unconsecrated contact.</p>
@@ -803,7 +794,7 @@ export default function App() {
 
     {/* Animated Sri Yantra Sacred Geometry */}
     <div className="yantra-section-wrapper reveal">
-      <SriYantraCanvas size={280} />
+      <ThreeSriYantra size={280} />
       <div className="yantra-label">
         <h3>The Sri Yantra — Sacred Geometry of Creation</h3>
         <p>Geometric blueprint of cosmic consciousness</p>
@@ -827,32 +818,32 @@ export default function App() {
     </div>
     <div className="mala-grid reveal">
       <div className="mala-card">
-        <span className="mi"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#C49A3C" strokeWidth="1.8" style={{display:'inline-block',verticalAlign:'middle'}}><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8" strokeWidth="1.2" opacity="0.5"/></svg></span>
+        <span className="mi"><GoldMalaIcon /></span>
         <h4>Gold Malas</h4>
         <p>Premium collector</p>
       </div>
       <div className="mala-card">
-        <span className="mi"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" style={{display:'inline-block',verticalAlign:'middle'}}><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4" opacity="0.3"/></svg></span>
+        <span className="mi"><SilverMalaIcon /></span>
         <h4>Silver Malas</h4>
         <p>Elegant &amp; sacred</p>
       </div>
       <div className="mala-card">
-        <span className="mi"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" style={{display:'inline-block',verticalAlign:'middle'}}><path d="M5 12c0-2 2-4 4-4s4 2 4 4-2 4-4 4 4-2 4-4 2-4 4-4 4 2 4 4"/></svg></span>
+        <span className="mi"><ThreadMalaIcon /></span>
         <h4>Scratch Malas</h4>
         <p>Traditional style</p>
       </div>
       <div className="mala-card">
-        <span className="mi"><svg className="svg-icon" viewBox="0 0 24 24" style={{width:'1.1em',height:'1.1em',display:'inline-block',verticalAlign:'middle',marginRight:'6px'}}><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/><circle cx="12" cy="6" r="1.5" fill="currentColor"/><circle cx="12" cy="18" r="1.5" fill="currentColor"/><circle cx="6" cy="12" r="1.5" fill="currentColor"/><circle cx="18" cy="12" r="1.5" fill="currentColor"/></svg></span>
+        <span className="mi"><PureBeadMalaIcon /></span>
         <h4>Bead Malas</h4>
         <p>Pure Rudraksha</p>
       </div>
       <div className="mala-card">
-        <span className="mi"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" style={{display:'inline-block',verticalAlign:'middle'}}><path d="M6 3h12l4 6-10 12L2 9z"/><path d="M2 9h20M12 21V9L6 3M12 21V9l6-6"/></svg></span>
+        <span className="mi"><FullMalaIcon /></span>
         <h4>Full Malas</h4>
         <p>108+1 count</p>
       </div>
       <div className="mala-card">
-        <span className="mi"><svg className="svg-icon" viewBox="0 0 24 24" style={{width:'1.3em',height:'1.3em',display:'inline-block',verticalAlign:'middle',marginRight:'6px'}}><path fill="currentColor" d="M20 6h-2.18c.11-.31.18-.65.18-1a2.5 2.5 0 0 0-5-0.5L12 6l-1-1.5a2.5 2.5 0 0 0-5 0.5c0 .35.07.69.18 1H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8-1.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5c0 .41-.16.78-.44 1.06L12 8V4.5zm-4.5-1.5C8.33 3 9 3.67 9 4.5V8H6.44c-.28-.28-.44-.65-.44-1.06 0-.83.67-1.5 1.5-1.5zM4 8h7v10H4V8zm16 10h-7V8h7v10z"/></svg></span>
+        <span className="mi"><CustomMalaIcon /></span>
         <h4>Custom Design</h4>
         <p>Made for you</p>
       </div>
@@ -916,7 +907,7 @@ export default function App() {
 
     {/* Interactive 3D Bead Viewer */}
     <div className="reveal" style={{marginTop: '32px'}}>
-      <BeadOrbitViewer mukhiCount={1} label="Ek Mukhi Kaju" subtitle="Rarest Form · Half-Moon · Sun" />
+      <ThreeBeadViewer />
     </div>
   </div>
 </section>
@@ -1354,6 +1345,9 @@ export default function App() {
     </div>
     <div className="community-q reveal">
       "The path to the divine is rarely walked alone — it is walked in community."
+    </div>
+    <div className="reveal">
+      <CommunityMap />
     </div>
     <div className="social-grid reveal">
       <a href="#" className="scard sc-ig">

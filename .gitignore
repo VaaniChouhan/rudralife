@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local workspace agents config and scratch pad
+AGENTS.md
+scratch/
